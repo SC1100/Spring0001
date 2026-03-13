@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://eec41yv5trem"]
+
+[ext_resource type="Script" path="res://scenes/components/BillboardViewerComponent.gd" id="1_v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1"]
+material = SubResource("StandardMaterial3D_1")
+
+[node name="BillboardViewer" type="Node3D"]
+script = ExtResource("1_v")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_1")
