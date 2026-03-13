@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b6r7p3v5p1m4f"]
+
+[ext_resource type="Script" path="res://scenes/components/TitleControllerComponent.gd" id="1_script"]
+
+[node name="TitleControllerComponent" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_script")
+
+[node name="TitleUI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="TitleUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.235294)
+
+[node name="MenuContainer" type="VBoxContainer" parent="TitleUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Enter" type="Button" parent="TitleUI/MenuContainer"]
+layout_mode = 2
+text = "Enter"
+
+[node name="Options" type="Button" parent="TitleUI/MenuContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Leave" type="Button" parent="TitleUI/MenuContainer"]
+layout_mode = 2
+text = "Leave"
+
+[connection signal="pressed" from="TitleUI/MenuContainer/Enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="TitleUI/MenuContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="TitleUI/MenuContainer/Leave" to="." method="_on_leave_pressed"]

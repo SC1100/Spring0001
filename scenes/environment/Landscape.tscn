@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ccuj1qnlqvqus"]
+
+[ext_resource type="Material" uid="uid://dg2l6w0f4v2p5" path="res://resources/data/grass_material.tres" id="1_g"]
+[ext_resource type="Material" uid="uid://be5v7q3v5p1m2" path="res://resources/data/sand_material.tres" id="2_s"]
+[ext_resource type="Material" uid="uid://dm7r7p3v5p1m2" path="res://resources/data/sea_material.tres" id="3_w"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1"]
+material = ExtResource("3_w")
+size = Vector2(1000, 1000)
+orientation = 1
+
+[node name="Landscape" type="Node3D" unique_id=1489819246]
+
+[node name="Terrain" type="CSGCombiner3D" parent="." unique_id=1198276023]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="Terrain" unique_id=751421944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9999962, 19.724121)
+size = Vector3(200, 2, 160.55176)
+material = ExtResource("1_g")
+
+[node name="Hill" type="CSGCylinder3D" parent="Terrain" unique_id=840809096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+radius = 30.0
+sides = 32
+material = ExtResource("1_g")
+
+[node name="BeachSlope" type="CSGBox3D" parent="Terrain" unique_id=404401557]
+transform = Transform3D(1, 0, 0, 0, 0.9976952, 0.06785838, 0, -0.06785838, 0.9976952, 0, -3.1920612, -92.59708)
+size = Vector3(200, 2, 65)
+material = ExtResource("2_s")
+
+[node name="Sea" type="MeshInstance3D" parent="." unique_id=1167538420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13650513, -4.014576, -200.18047)
+mesh = SubResource("QuadMesh_1")

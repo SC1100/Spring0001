@@ -39,7 +39,7 @@ func _start_entrance_sequence() -> void:
 	# 방 안의 시작 위치로 플레이어 이동 (또는 씬 재시작)
 	var player = get_tree().root.find_child("Player", true, false)
 	if player:
-		player.global_position = Vector3(-6, 0.5, 12.6) # 방 내부 시작점 (Y값을 약간 높임)
+		player.global_position = Vector3(-6, 2.5, 12.6) # 방 내부 시작점 (지형 고도 2m 반영)
 		
 	if transition:
 		await transition.fade_in(1.0)

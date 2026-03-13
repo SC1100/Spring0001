@@ -1,31 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo134hp2dlffg"]
+[gd_scene format=3 uid="uid://bo134hp2dlffg"]
 
-[ext_resource type="Script" path="res://scripts/environment/World.gd" id="1_w"]
-[ext_resource type="Material" uid="uid://c7r7p3v5p1m2e" path="res://resources/data/grid_material.tres" id="1_m"]
-[ext_resource type="PackedScene" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
-[ext_resource type="PackedScene" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1"]
-material = ExtResource("1_m")
-size = Vector3(100, 1, 100)
+[ext_resource type="Script" uid="uid://cc40fserw7l25" path="res://scripts/environment/World.gd" id="1_w"]
+[ext_resource type="PackedScene" uid="uid://ccuj1qnlqvqus" path="res://scenes/environment/Landscape.tscn" id="2_l"]
+[ext_resource type="PackedScene" uid="uid://c8r7p3v5p1m3e" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
+[ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
 
 [node name="World" type="Node3D" unique_id=781998084]
 script = ExtResource("1_w")
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1186199972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=429460167]
-shape = SubResource("BoxShape3D_1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=646812661]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05720663, 0)
-mesh = SubResource("BoxMesh_1")
+[node name="Landscape" parent="." unique_id=966430964 instance=ExtResource("2_l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12398672, 0)
 
 [node name="MainRoom" parent="." unique_id=1498216729 instance=ExtResource("4_r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="MediaFrame" parent="." unique_id=848512079 instance=ExtResource("3_f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.2, 0)

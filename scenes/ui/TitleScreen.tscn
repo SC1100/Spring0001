@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cylsnyvfgp7i4"]
 
 [ext_resource type="Script" uid="uid://bo3nnajktf6ix" path="res://scenes/ui/TitleScreen.gd" id="1_s"]
+[ext_resource type="PackedScene" uid="uid://ccuj1qnlqvqus" path="res://scenes/environment/Landscape.tscn" id="2_l"]
 [ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="2_m"]
 [ext_resource type="PackedScene" path="res://scenes/components/SceneTransitionComponent.tscn" id="3_t"]
 
@@ -13,12 +14,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s")
 
+[node name="Landscape" parent="." unique_id=1594485544 instance=ExtResource("2_l")]
+
 [node name="MainRoom" parent="." unique_id=688290808 instance=ExtResource("2_m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0937371, 0)
 
 [node name="ExteriorCam2" type="Camera3D" parent="MainRoom" unique_id=314675631]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -13, 2, 17)
 
-[node name="InteriorCam" type="Camera3D" parent="MainRoom" unique_id=414675632]
+[node name="InteriorCam2" type="Camera3D" parent="MainRoom" unique_id=414675632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
 
 [node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1508951729]

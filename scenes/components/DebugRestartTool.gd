@@ -10,6 +10,6 @@ func restart_to_title(_interactor: Node3D = null) -> void:
 	if transition:
 		await transition.fade_out(1.0)
 	
-	# 타이틀로 이동
-	get_tree().change_scene_to_file("res://scenes/ui/TitleScreen.tscn")
+	# 월드 재시작 (통합 타이틀 컴포넌트가 로직 처리)
+	get_tree().change_scene_to_file("res://scenes/environment/World.tscn")
 	print("[Debug] Restarting to title...")
