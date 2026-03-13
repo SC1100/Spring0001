@@ -4,6 +4,8 @@ class_name BillboardViewerComponent
 ## 3D 월드에서 플레이어를 항상 바라보는 미디어 뷰어 컴포넌트
 ## 로어북 규칙 준수: 시각 연출의 컴포넌트화, Tween 활용
 
+@export var fade_duration: float = 0.3
+
 @onready var mesh_instance: MeshInstance3D = $MeshInstance
 
 var is_active: bool = false
@@ -35,7 +37,7 @@ func show_media(texture: Texture2D) -> void:
 	
 	# 페이드 인 (Tween 활용)
 	var tween = create_tween()
-	tween.tween_method(modulate_alpha, 0.0, 1.0, 0.3)
+	tween.tween_method(modulate_alpha, 0.0, 1.0, fade_duration)
 
 func hide_media() -> void:
 	if not is_active: return
@@ -43,7 +45,7 @@ func hide_media() -> void:
 	is_active = false
 	# 페이드 아웃
 	var tween = create_tween()
-	tween.tween_method(modulate_alpha, 1.0, 0.0, 0.3)
+	tween.tween_method(modulate_alpha, 1.0, 0.0, fade_duration)
 	tween.tween_callback(hide)
 
 func modulate_alpha(alpha: float) -> void:

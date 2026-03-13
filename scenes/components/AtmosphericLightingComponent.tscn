@@ -14,8 +14,7 @@ background_mode = 2
 sky = SubResource("Sky_1")
 tonemap_mode = 2
 glow_enabled = true
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
+volumetric_fog_enabled = false
 
 [node name="AtmosphericLighting" type="Node3D"]
 script = ExtResource("1_l")

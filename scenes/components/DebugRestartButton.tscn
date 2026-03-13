@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/components/DebugRestartTool.gd" id="1_r"]
+[ext_resource type="PackedScene" path="res://scenes/components/Interactable.tscn" id="2_i"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape_1"]
+radius = 0.3
+
+[node name="DebugRestartBall" type="StaticBody3D"]
+script = ExtResource("1_r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1")
+surface_material_override/0 = SubResource("StandardMaterial3D_1")
+
+[node name="Interactable" parent="." instance=ExtResource("2_i")]
+interaction_text = "게임 리스타트 (초기화)"
+
+[connection signal="interacted" from="Interactable" to="." method="restart_to_title"]

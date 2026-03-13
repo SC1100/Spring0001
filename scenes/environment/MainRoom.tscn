@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" path="res://scenes/components/AtmosphericLightingComponent.tscn" id="1_a"]
 [ext_resource type="PackedScene" uid="uid://b5x7n7q3v5p" path="res://scenes/characters/Player.tscn" id="2_p"]
+[ext_resource type="PackedScene" path="res://scenes/components/DebugRestartButton.tscn" id="4_r"]
+[ext_resource type="PackedScene" path="res://scenes/components/DebugEndingBall.tscn" id="5_e"]
+[ext_resource type="PackedScene" path="res://scenes/components/DoorComponent.tscn" id="6_d"]
 
 [node name="MainRoom" type="Node3D" unique_id=1498674118]
 
@@ -10,6 +13,9 @@
 [node name="AtmosphericLighting" parent="Environment" unique_id=545845272 instance=ExtResource("1_a")]
 
 [node name="Geometry" type="Node3D" parent="." unique_id=2022305373]
+
+[node name="DoorComponent" parent="Geometry" unique_id=1211809247 instance=ExtResource("6_d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197758, 0.024507523, 15.897349)
 
 [node name="RoomCSG" type="CSGCombiner3D" parent="Geometry" unique_id=785507464]
 use_collision = true
@@ -23,8 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.1, 14.5)
 size = Vector3(8, 0.2, 9)
 
 [node name="Ceiling_Main" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=200000001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057128906, 7.1000004, 0)
-size = Vector3(20.114258, 0.2, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057128906, 7.1000004, -0.81469727)
+size = Vector3(20.114258, 0.2, 21.629395)
 
 [node name="Ceiling_Passage" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=200000002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.044922, 7.1000004, 14.5)
@@ -55,23 +61,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.915182, -0.13698053, -9.026
 size = Vector3(12.08313, 7.650879, 0.2)
 
 [node name="Wall_Front" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1167465254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10)
-size = Vector3(20, 7, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10.765674)
+size = Vector3(20, 7, 1.7313477)
 
 [node name="Window_Cutout_Center" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=843408164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -12.281738)
 operation = 2
-size = Vector3(10, 5, 0.5)
+size = Vector3(10, 5, 5.0634766)
 
 [node name="Window_Cutout_Left" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1694367609]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.5, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.5, -13.588379)
 operation = 2
-size = Vector3(3, 5, 0.5)
+size = Vector3(3, 5, 7.676758)
 
 [node name="Window_Cutout_Right" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1361313330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.5, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.5, -13.766113)
 operation = 2
-size = Vector3(3, 5, 0.5)
+size = Vector3(3, 5, 8.032227)
 
 [node name="Player" parent="." unique_id=781874979 instance=ExtResource("2_p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 12.63826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.5, 15.8)
+
+[node name="DebugTools" type="Node3D" parent="." unique_id=400000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+
+[node name="DebugRestartButton" parent="DebugTools" unique_id=1162779307 instance=ExtResource("4_r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="DebugEndingBall" parent="DebugTools" unique_id=1354785492 instance=ExtResource("5_e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

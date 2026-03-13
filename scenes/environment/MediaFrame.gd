@@ -3,8 +3,7 @@ extends StaticBody3D
 ## Media Trigger Frame
 ## 로어북 규칙 준수: UI 분리 및 거리 기반 상태 제어
 
-@export var interact_distance_limit: float = 5.0
-@onready var interactable: Node = $Interactable
+@onready var interactable: Interactable = $Interactable
 @onready var file_dialog: FileDialog = $FileDialog
 @onready var viewer_instance: BillboardViewerComponent = $BillboardViewer
 
@@ -20,7 +19,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_viewer_open and last_interactor:
 		var dist = global_position.distance_to(last_interactor.global_position)
-		if dist > interact_distance_limit:
+		if dist > interactable.interact_distance_limit:
 			_close_viewer()
 
 func _on_interacted(interactor: Node3D) -> void:

@@ -7,6 +7,7 @@ extends Node
 @export var speed: float = 5.0
 @export var acceleration: float = 10.0
 @export var friction: float = 10.0
+@export var gravity: float = 9.8
 
 @onready var body: CharacterBody3D = get_parent() as CharacterBody3D
 
@@ -16,9 +17,9 @@ func handle_movement(direction: Vector3, delta: float) -> void:
 	
 	var target_velocity = direction * speed
 	
-	# 중력 적용 (기본적인 3D 이동을 위해)
+	# 중력 적용
 	if not body.is_on_floor():
-		body.velocity.y -= 9.8 * delta
+		body.velocity.y -= gravity * delta
 	
 	# 수평 이동 가속/감속
 	if direction != Vector3.ZERO:

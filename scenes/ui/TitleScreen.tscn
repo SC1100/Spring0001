@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cylsnyvfgp7i4"]
+
+[ext_resource type="Script" uid="uid://bo3nnajktf6ix" path="res://scenes/ui/TitleScreen.gd" id="1_s"]
+[ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="2_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/SceneTransitionComponent.tscn" id="3_t"]
+
+[node name="TitleScreen" type="Control" unique_id=1955409966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s")
+
+[node name="MainRoom" parent="." unique_id=688290808 instance=ExtResource("2_m")]
+
+[node name="ExteriorCam2" type="Camera3D" parent="MainRoom" unique_id=314675631]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -13, 2, 17)
+
+[node name="InteriorCam" type="Camera3D" parent="MainRoom" unique_id=414675632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1508951729]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Enter" type="Button" parent="MenuContainer" unique_id=623142324]
+layout_mode = 2
+text = "Enter"
+
+[node name="Options" type="Button" parent="MenuContainer" unique_id=127992796]
+layout_mode = 2
+text = "Options"
+
+[node name="Leave" type="Button" parent="MenuContainer" unique_id=1064178304]
+layout_mode = 2
+text = "Leave"
+
+[node name="SceneTransition" parent="." unique_id=1999599717 instance=ExtResource("3_t")]
+
+[connection signal="pressed" from="MenuContainer/Enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="MenuContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuContainer/Leave" to="." method="_on_leave_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/environment/MediaFrame.gd" id="1_f"]
 [ext_resource type="Script" path="res://scenes/components/Interactable.gd" id="2_i"]
-[ext_resource type="PackedScene" uid="uid://d8r7p3v5p1m5e" path="res://scenes/components/BillboardViewerComponent.tscn" id="3_b"]
+[ext_resource type="PackedScene" path="res://scenes/components/BillboardViewerComponent.tscn" id="3_b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(1.2, 1.2, 0.2)

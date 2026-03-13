@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global/Global.gd"
 GameStateManager="*res://scripts/global/GameStateManager.gd"
+SceneTransition="*res://scenes/components/SceneTransitionComponent.tscn"
 
 [input]
 

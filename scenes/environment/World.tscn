@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://bo134hp2dlffg"]
+[gd_scene load_steps=6 format=3 uid="uid://bo134hp2dlffg"]
 
+[ext_resource type="Script" path="res://scripts/environment/World.gd" id="1_w"]
 [ext_resource type="Material" uid="uid://c7r7p3v5p1m2e" path="res://resources/data/grid_material.tres" id="1_m"]
 [ext_resource type="PackedScene" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
 [ext_resource type="PackedScene" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
@@ -12,6 +13,7 @@ material = ExtResource("1_m")
 size = Vector3(100, 1, 100)
 
 [node name="World" type="Node3D" unique_id=781998084]
+script = ExtResource("1_w")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1186199972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

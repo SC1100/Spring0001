@@ -7,6 +7,7 @@ class_name Interactable
 signal interacted(interactor: Node3D)
 
 @export var interaction_text: String = "Interact"
+@export var interact_distance_limit: float = 2.0
 
 func interact(interactor: Node3D) -> void:
 	interacted.emit(interactor)

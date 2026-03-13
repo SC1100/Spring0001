@@ -19,8 +19,17 @@ func _attempt_interaction() -> void:
 	if not collider:
 		return
 		
+	print("[Interaction] Ray hit: ", collider.name)
+		
 	# 콜라이더의 자식 중 상호작용 가능한 컴포넌트 검색
 	for child in collider.get_children():
-		if child.has_method("interact"):
-			child.interact(get_parent())
-			return
+		if child is Interactable or child.has_method("interact"):
+			var dist = collider.global_position.distance_to(get_parent().global_position)
+			var limit = child.get("interact_distance_limit") if child.has_method("get") else 2.0
+			
+			if dist <= limit:
+				child.interact(get_parent())
+				print("[Interaction] Success with: ", child.name)
+				return
+			else:
+				print("[Interaction] Too far: ", dist, " > ", limit)
