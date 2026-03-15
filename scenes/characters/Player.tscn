@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/components/MovementComponent.gd" id="2_m"]
 [ext_resource type="Script" path="res://scenes/components/InteractionComponent.gd" id="2_i"]
 [ext_resource type="Script" path="res://scenes/components/CameraControllerComponent.gd" id="2_c"]
+[ext_resource type="Script" path="res://scenes/components/GrabComponent.gd" id="4_g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 radius = 0.4
@@ -48,3 +49,15 @@ current = true
 
 [node name="InteractionRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
 target_position = Vector3(0, 0, -10)
+
+[node name="GrabComponent" type="Node" parent="." node_paths=PackedStringArray("interaction_ray", "hold_point")]
+script = ExtResource("4_g")
+interaction_ray = NodePath("../CameraPivot/Camera3D/InteractionRay")
+hold_point = NodePath("../CameraPivot/Camera3D/HoldPoint")
+
+[node name="GrabPoint" type="Marker3D" parent="CameraPivot/Camera3D"]
+unique_id = 9991
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="HoldPoint" type="Marker3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)

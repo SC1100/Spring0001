@@ -15,18 +15,28 @@ func _ready() -> void:
 	# 마우스 커서 보이게 설정
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	# 카메라 자동 검색 (사용자가 이름을 바꿔도 Exterior/Interior 포함된 노드를 찾음)
+	# 카메라 자동 검색 및 생성 (TitleScreen.tscn을 가볍게 유지하기 위함)
 	exterior_cam = find_child("*ExteriorCam*", true, false)
 	interior_cam = find_child("*InteriorCam*", true, false)
 	
-	# 안전장치: 카메라를 못 찾았을 경우 새로 생성하거나 기본값 할당
-	if not interior_cam and has_node("MainRoom/Geometry"):
-		interior_cam = Camera3D.new()
-		interior_cam.name = "InteriorCam_Fallback"
-		$MainRoom/Geometry.add_child(interior_cam)
-		interior_cam.transform = Transform3D(Basis(), Vector3(0, 3, 7))
+	# 외벽 시점용 카메라가 없다면 동적 생성 (설계도 중복 방지)
+	if not exterior_cam:
+		exterior_cam = Camera3D.new()
+		exterior_cam.name = "ExteriorCam_Title"
+		add_child(exterior_cam)
+		# 플레이어가 문을 열기 전 바라보는 지점 (수치 최적화)
+		exterior_cam.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(135)), Vector3(-13, 2, 17))
 	
-	print("[Title] Cameras assigned. Exterior: ", exterior_cam != null, " Interior: ", interior_cam != null)
+	if not interior_cam:
+		# MainRoom 내부 카메라가 있다면 그것을 활용
+		interior_cam = get_tree().get_nodes_in_group("MainRoomCamera").front() if get_tree().get_nodes_in_group("MainRoomCamera") else null
+		if not interior_cam:
+			interior_cam = Camera3D.new()
+			interior_cam.name = "InteriorCam_Fallback"
+			add_child(interior_cam)
+			interior_cam.transform = Transform3D(Basis(), Vector3(0, 3, 7))
+	
+	print("[Title] View System Ready. Saved state will be applied via MainRoom.")
 	_setup_view()
 	
 	var transition = get_transition()

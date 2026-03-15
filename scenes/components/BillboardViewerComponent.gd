@@ -5,18 +5,27 @@ class_name BillboardViewerComponent
 ## 로어북 규칙 준수: 시각 연출의 컴포넌트화, Tween 활용
 
 @export var fade_duration: float = 0.3
+@export var keep_upright: bool = true # 부모가 회전해도 항상 똑바로 서 있음
+@export var vertical_offset: float = 0.8 # 부모 위치로부터의 높이 간격
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance
 
 var is_active: bool = false
 
 func _ready() -> void:
+	if keep_upright:
+		top_level = true # 부모의 회전 상속을 차단하고 전역 좌표계에서 독립적으로 작동
+	
 	# 초기화: 투명하게 시작
 	modulate_alpha(0.0)
 	hide()
 
 func _process(_delta: float) -> void:
 	if is_active:
+		if keep_upright and is_instance_valid(get_parent()):
+			# 부모의 위치를 따라가되 회전은 독립적으로 유지
+			global_position = get_parent().global_position + Vector3(0, vertical_offset, 0)
+			
 		var camera = get_viewport().get_camera_3d()
 		if camera:
 			look_at(camera.global_position, Vector3.UP)

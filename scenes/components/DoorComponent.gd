@@ -20,9 +20,17 @@ func _ready() -> void:
 		
 	if not interactable.interacted.is_connected(_on_door_interacted):
 		interactable.interacted.connect(_on_door_interacted)
+	
+	# 하이라이트 컴포넌트 자동 추가 (루트에 직접 부착하여 탐색 용이성 확보)
+	if not find_child("HighlightComponent", true, false):
+		var hc_script = load("res://scenes/components/HighlightComponent.gd")
+		var hc = hc_script.new()
+		hc.name = "HighlightComponent"
+		add_child(hc)
+		
 	print("[DoorComponent] Ready and connected to: ", interactable.name)
 
-func _on_door_interacted(_interactor: Node3D) -> void:
+func _on_door_interacted(_interactor: Node3D, _is_long: bool = false) -> void:
 	# 문 밖에서 상호작용하면 무조건 입장 시퀀스 시작 (테스트 편의성 및 자유도)
 	_start_entrance_sequence()
 

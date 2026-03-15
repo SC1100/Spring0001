@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="2_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/BillboardViewerComponent.tscn" id="3_b"]
+[ext_resource type="Script" path="res://scenes/components/PickupComponent.gd" id="4_p"]
+[ext_resource type="Script" path="res://scenes/components/HighlightComponent.gd" id="5_h"]
+[ext_resource type="Script" path="res://scenes/components/SaveTriggerComponent.gd" id="6_s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1"]
+height = 1.0
+radius = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1"]
+height = 1.0
+top_radius = 0.5
+bottom_radius = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_high_friction"]
+friction = 1.0
+rough = true
+
+[node name="PlaceableCylinder" type="RigidBody3D" groups=["Persistent"]]
+collision_layer = 1
+collision_mask = 3
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_high_friction")
+linear_damp = 1.0
+angular_damp = 1.0
+lock_rotation = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_1")
+
+[node name="Interactable" parent="." instance=ExtResource("1_i")]
+interaction_text = "미디어 실린더 조작"
+
+[node name="MediaFrameComponent" parent="." node_paths=PackedStringArray("billboard_viewer", "interactable") instance=ExtResource("2_m")]
+billboard_viewer = NodePath("../BillboardViewer")
+interactable = NodePath("../Interactable")
+
+[node name="BillboardViewer" parent="." instance=ExtResource("3_b")]
+vertical_offset = 0.8
+
+[node name="PickupComponent" type="Node" parent="."]
+script = ExtResource("4_p")
+
+[node name="HighlightComponent" type="Node" parent="."]
+script = ExtResource("5_h")
+
+[node name="SaveTriggerComponent" type="Node" parent="." node_paths=PackedStringArray("target_nodes")]
+script = ExtResource("6_s")
+target_nodes = [NodePath("../PickupComponent"), NodePath("../MediaFrameComponent")]
+signals_to_watch = ["dropped", "media_changed"]

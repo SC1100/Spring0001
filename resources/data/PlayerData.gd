@@ -7,6 +7,8 @@ class_name PlayerData
 @export_group("Progress")
 @export var is_game_cleared: bool = false
 @export var play_count: int = 0
+@export var has_interacted_once: bool = false
+@export var placed_objects: Array[Resource] = [] # PlacedObjectData 배열
 
 @export_group("Settings")
 @export var master_volume: float = 1.0

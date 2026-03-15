@@ -1,12 +1,18 @@
-[gd_scene format=3 uid="uid://dx861xmqm85n1"]
+[gd_scene load_steps=10 format=3 uid="uid://dx861xmqm85n1"]
 
+[ext_resource type="Script" path="res://scenes/environment/MainRoom.gd" id="1_m"]
 [ext_resource type="PackedScene" path="res://scenes/components/AtmosphericLightingComponent.tscn" id="1_a"]
 [ext_resource type="PackedScene" uid="uid://b5x7n7q3v5p" path="res://scenes/characters/Player.tscn" id="2_p"]
 [ext_resource type="PackedScene" path="res://scenes/components/DebugRestartButton.tscn" id="4_r"]
 [ext_resource type="PackedScene" path="res://scenes/components/DebugEndingBall.tscn" id="5_e"]
 [ext_resource type="PackedScene" path="res://scenes/components/DoorComponent.tscn" id="6_d"]
+[ext_resource type="PackedScene" path="res://scenes/environment/PlaceableCube.tscn" id="7_c"]
+[ext_resource type="PackedScene" path="res://scenes/environment/PlaceableCylinder.tscn" id="8_y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k6kcy"]
 
 [node name="MainRoom" type="Node3D" unique_id=1498674118]
+script = ExtResource("1_m")
 
 [node name="Environment" type="Node3D" parent="." unique_id=1519504922]
 
@@ -15,7 +21,8 @@
 [node name="Geometry" type="Node3D" parent="." unique_id=2022305373]
 
 [node name="DoorComponent" parent="Geometry" unique_id=1211809247 instance=ExtResource("6_d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.197758, 0.024507523, 15.897349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.271468, 0.024507523, 15.897349)
+physics_material_override = SubResource("PhysicsMaterial_k6kcy")
 
 [node name="RoomCSG" type="CSGCombiner3D" parent="Geometry" unique_id=785507464]
 use_collision = true
@@ -82,7 +89,7 @@ size = Vector3(3, 5, 8.032227)
 [node name="Player" parent="." unique_id=781874979 instance=ExtResource("2_p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, 15)
 
-[node name="InteriorCam" type="Camera3D" parent="." unique_id=200000003]
+[node name="InteriorCam" type="Camera3D" parent="." unique_id=200000003 groups=["MainRoomCamera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.5, 4)
 
 [node name="DebugTools" type="Node3D" parent="." unique_id=400000001]
@@ -92,4 +99,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="DebugEndingBall" parent="DebugTools" unique_id=1354785492 instance=ExtResource("5_e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="PlaceableCube" parent="." unique_id=70001 instance=ExtResource("7_c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 12)
+
+[node name="PlaceableCylinder" parent="." unique_id=70002 instance=ExtResource("8_y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 12)

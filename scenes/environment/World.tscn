@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccuj1qnlqvqus" path="res://scenes/environment/Landscape.tscn" id="2_l"]
 [ext_resource type="PackedScene" uid="uid://c8r7p3v5p1m3e" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
 [ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
+[ext_resource type="Script" path="res://scenes/components/DebugHardResetComponent.gd" id="5_d"]
 
 [node name="World" type="Node3D" unique_id=781998084]
 script = ExtResource("1_w")
@@ -16,3 +17,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="MediaFrame" parent="." unique_id=848512079 instance=ExtResource("3_f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.2, 0)
+
+[node name="debug_hardreset" type="Node" parent="."]
+script = ExtResource("5_d")

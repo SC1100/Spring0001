@@ -19,12 +19,6 @@ script = ExtResource("1_s")
 [node name="MainRoom" parent="." unique_id=688290808 instance=ExtResource("2_m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0937371, 0)
 
-[node name="ExteriorCam2" type="Camera3D" parent="MainRoom" unique_id=314675631]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -13, 2, 17)
-
-[node name="InteriorCam2" type="Camera3D" parent="MainRoom" unique_id=414675632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 7)
-
 [node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1508951729]
 layout_mode = 1
 anchors_preset = 8
