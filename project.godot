@@ -21,6 +21,11 @@ Global="*res://scripts/global/Global.gd"
 GameStateManager="*res://scripts/global/GameStateManager.gd"
 SceneTransition="*res://scenes/components/SceneTransitionComponent.tscn"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [input]
 
 move_forward={
@@ -56,5 +61,3 @@ interact={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

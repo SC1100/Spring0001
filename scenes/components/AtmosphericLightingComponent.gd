@@ -24,8 +24,8 @@ func apply_settings() -> void:
 	
 	if world_environment:
 		var env = world_environment.environment
-		env.volumetric_fog_enabled = fog_enabled
-		env.volumetric_fog_density = fog_density
+		env.fog_enabled = fog_enabled
+		env.fog_density = fog_density
 
 ## 특정 기조(Mood)로 조명을 부드럽게 전환하는 함수 (추후 확장용)
 func transition_to_mood(new_color: Color, new_intensity: float, duration: float = 2.0) -> void:
