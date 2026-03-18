@@ -1,0 +1,3 @@
+res://scenes/components/AtmosphericLightingComponent.tscn
+res://scenes/components/RealTimeSkyComponent.gd
+res://scenes/components/graphics/SDFGIComponent.gd

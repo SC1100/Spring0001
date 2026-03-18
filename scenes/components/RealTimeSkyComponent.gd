@@ -17,7 +17,7 @@ class_name RealTimeSkyComponent
 @export var moon_color: Color = Color(0.6, 0.7, 1.0) # 달빛 색
 
 @export_group("Sky & Environment")
-@export var latitude: float = 37.5 # 서울/한국 위도 기준
+@export var latitude: float = 55.0 # 높은 위도 기준 (기존 37.5에서 상향)
 @export var sky_top_day: Color = Color(0.3, 0.5, 0.9)
 @export var sky_top_night: Color = Color(0.05, 0.05, 0.1)
 @export var cloud_density_base: float = 0.5
@@ -32,6 +32,8 @@ func _ready() -> void:
 	# 초기화 시 타겟 자동 검색
 	if not sun_light:
 		sun_light = get_parent().find_child("DirectionalLight3D", true, false)
+	if not moon_light:
+		moon_light = get_parent().find_child("MoonLight", true, false)
 	if not world_env:
 		world_env = get_parent().find_child("WorldEnvironment", true, false)
 	
@@ -72,72 +74,77 @@ func update_sky(force: bool = false) -> void:
 	# 북반구에서는 태양이 남쪽(-Z) 하늘을 따라 이동함
 	var sun_pos = Vector3()
 	sun_pos.x = sin(hour_angle) # 동쪽(-X)에서 떠서 서쪽(+X)으로 이동
-	sun_pos.y = cos(hour_angle) * cos(lat_rad) # 고도 ( zenith에서 위도만큼 기울어짐)
-	sun_pos.z = - cos(hour_angle) * sin(lat_rad) # 위도만큼 남쪽(-Z)으로 치우침
+	sun_pos.y = cos(hour_angle) * cos(lat_rad) # 고도
+	sun_pos.z = - cos(hour_angle) * sin(lat_rad)
+	
+	var moon_pos = - sun_pos # 달은 태양의 정반대
 	
 	if sun_light:
 		# 빛의 방향은 태양 위치에서 원점을 바라보는 방향
 		sun_light.look_at(sun_light.global_position - sun_pos, Vector3.UP)
 		
-		# 쉐이더 컴포넌트 업데이트 (컴포넌트 구조 준수)
-		var sky_shader = get_parent().find_child("DynamicSky", true, false)
-		if sky_shader and sky_shader.has_method("update_sun_direction"):
-			sky_shader.update_sun_direction(sun_pos.normalized())
+	if moon_light:
+		moon_light.look_at(moon_light.global_position - moon_pos, Vector3.UP)
 		
-		# 광량 및 색상 보간
-		_adjust_light_parameters(day_ratio)
+	# 쉐이더 컴포넌트 업데이트
+	var sky_shader = get_parent().find_child("DynamicSky", true, false)
+	if sky_shader and sky_shader.has_method("update_sun_direction"):
+		sky_shader.update_sun_direction(sun_pos.normalized())
+	
+	# 광량 및 색상 보간
+	_adjust_light_parameters(day_ratio, sun_pos.y)
 
-	# 2. 하늘 색상 및 구름 보간
+	# 2. 하늘 색상 보간
 	_adjust_sky_parameters(day_ratio)
 
-func _adjust_light_parameters(ratio: float) -> void:
-	if not sun_light: return
+func _adjust_light_parameters(_ratio: float, sun_altitude: float) -> void:
+	if not sun_light or not moon_light: return
 	
-	# 태양 고도에 따른 강도 보정 (12시 정오에 가장 밝게 peak)
-	# hour_angle이 0일 때(정오) cos(0) = 1.0이 되어 day_intensity가 정확히 적용됨
-	var hour_angle = (ratio - 0.5) * PI * 2.0
-	var altitude_factor = clamp(cos(hour_angle), -1.0, 1.0)
-	
-	if altitude_factor > 0:
-		# 낮 (태양이 떠있는 동안)
-		sun_light.light_energy = lerp(night_intensity, day_intensity, altitude_factor)
+	# --- 태양광 제어 ---
+	if sun_altitude > -0.05:
+		var sun_factor = clamp(sun_altitude / 0.5, 0.0, 1.0)
+		sun_light.light_energy = lerp(0.0, day_intensity, sun_factor)
 		
-		# 지평선 근처(노을)일 때 색상 변화
-		if altitude_factor < 0.3:
-			sun_light.light_color = lerp(sunset_color, sun_color, altitude_factor / 0.3)
+		if sun_altitude < 0.3:
+			sun_light.light_color = lerp(sunset_color, sun_color, sun_altitude / 0.3)
 		else:
 			sun_light.light_color = sun_color
 		
 		sun_light.visible = true
+		sun_light.shadow_enabled = sun_altitude > 0.0
 	else:
-		# 밤
-		sun_light.light_energy = night_intensity
-		sun_light.light_color = moon_color
-		sun_light.visible = true
+		sun_light.visible = false
+		sun_light.shadow_enabled = false
+		
+	# --- 달빛 제어 ---
+	var moon_altitude = - sun_altitude
+	if moon_altitude > -0.05:
+		var moon_factor = clamp(moon_altitude / 0.5, 0.0, 1.0)
+		moon_light.light_energy = lerp(0.0, night_intensity, moon_factor)
+		moon_light.light_color = moon_color
+		moon_light.visible = true
+		moon_light.shadow_enabled = moon_altitude > 0.0
+	else:
+		moon_light.visible = false
+		moon_light.shadow_enabled = false
 
 func _adjust_sky_parameters(ratio: float) -> void:
 	if not world_env or not world_env.environment: return
 	
 	var env = world_env.environment
-	# 하늘 색상 및 안개 동기화를 위한 고도 계수 (역시 정오 기준)
+	# 하늘 색상 및 조명 동기화를 위한 고도 계수
 	var hour_angle = (ratio - 0.5) * PI * 2.0
 	var altitude_factor = clamp(cos(hour_angle), -1.0, 1.0)
 	var day_vibrancy = clamp(altitude_factor, 0, 1)
 	
-	# 중립적인 조명을 위해 앰비언트 설정 조정 (파란색 번짐 방지)
+	# 3. 환경 및 색상 동기화 (안개 로직 완전 제거)
+	env.volumetric_fog_enabled = false
+	env.fog_enabled = false
+	
+	# 시간에 따른 앰비언트 광량 조절 (밤낮 느낌 복구)
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	env.ambient_light_sky_contribution = 0.40 # 하늘색 반영을 대폭 낮춤
-	env.ambient_light_color = Color(0.1, 0.1, 0.1) # 기본 중립 앰비언트 확보
-	
-	# 3. 안개 고도화 (밀도 대폭 강화)
-	env.volumetric_fog_enabled = true
-	# 낮 밀도를 0.03, 밤 밀도를 0.12 정도로 세팅 (요청에 따라 대폭 강화)
-	var v_density = lerp(0.005, 0.005, day_vibrancy)
-	# 안개 색상을 회색 기운 없는 완전한 순백색으로 변경
-	var v_color = lerp(Color(0.5, 0.5, 0.5), Color(1.0, 1.0, 1.0), day_vibrancy)
-	
-	env.volumetric_fog_density = v_density
-	env.volumetric_fog_albedo = v_color
+	env.ambient_light_sky_contribution = lerp(0.05, 0.4, day_vibrancy)
+	env.ambient_light_color = Color(0.1, 0.1, 0.1)
 	
 	# 4. 하늘 색상 동기화 (DynamicSky 쉐이더 연동)
 	var sky_node = get_parent().find_child("DynamicSky", true, false)
@@ -149,14 +156,3 @@ func _adjust_sky_parameters(ratio: float) -> void:
 			shader_mat.set_shader_parameter("day_bottom_color", Color(0.7, 0.85, 1.0)) # 지평선을 더 연하고 부드럽게
 			shader_mat.set_shader_parameter("night_top_color", sky_top_night)
 			shader_mat.set_shader_parameter("sunset_color", sunset_color)
-	
-	# 근경 안개 (GroundFog) 업데이트 복구
-	var ground_fog = get_parent().find_child("GroundFog", true, false)
-	if ground_fog:
-		var near_fog_density = lerp(0.2, 0.05, day_vibrancy)
-		# 근경 안개도 완전한 흰색 계열로 변경
-		var fog_color = lerp(Color(0.5, 0.5, 0.5), Color(1.0, 1.0, 1.0), day_vibrancy)
-		if ground_fog.has_method("update_fog_density"):
-			ground_fog.update_fog_density(near_fog_density)
-		if ground_fog.has_method("update_fog_color"):
-			ground_fog.update_fog_color(fog_color)

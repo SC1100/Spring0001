@@ -1,0 +1,95 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1773783876
+icon.svg::CompressedTexture2D::7011462295235478017::1773398204::1773398209::1::::<><><>0<>0<>f61bdb2222a9aeffd150e478fa74fbe2<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+task.md::TextFile::-1::1773398820::0::1::::<><><>0<>0<><>::
+::res://! 작업진행 문서/::1773631550
+0314 implementation_plan.md::TextFile::-1::1773417741::0::1::::<><><>0<>0<><>::
+0314 task.md::TextFile::-1::1773540107::0::1::::<><><>0<>0<><>::
+0314 walkthrough.md::TextFile::-1::1773420488::0::1::::<><><>0<>0<><>::
+dear 기획안.md::TextFile::-1::1773290435::0::1::::<><><>0<>0<><>::
+game_evaluation 1.md::TextFile::-1::1773397342::0::1::::<><><>0<>0<><>::
+godot lorebook.md::TextFile::-1::1773396183::0::1::::<><><>0<>0<><>::
+opus_0314 architectural_review.md::TextFile::-1::1773414664::0::1::::<><><>0<>0<><>::
+todo_list.md::TextFile::-1::1773630757::0::1::::<><><>0<>0<><>::
+::res://assets/::1773403269
+240412 봄이.png::CompressedTexture2D::9155246939474957387::1718637076::1773403269::1::::<><><>0<>0<>c7cb9cc7d37405a3066bd3208b7f4610<>res://.godot/imported/240412 봄이.png-3bdc3b6e764974f10a5161cdcb7fa031.ctex::
+::res://assets/animations/::1773399029
+::res://assets/audio/::1773399029
+::res://assets/models/::1773399029
+::res://assets/textures/::1773399029
+::res://resources/::1773619521
+::res://resources/behavior/::1773534244
+::res://resources/data/::1773625029
+grass_material.tres::StandardMaterial3D::7636857753199195872::1773625029::0::1::::<><><>0<>0<><>::
+grid_material.tres::ShaderMaterial::7055950020778196106::1773409132::0::1::::<><><>0<>0<><>::uid://l3gfv7st38ql::::res://shaders/grid.gdshader
+PetData.gd::GDScript::2196725678395836142::1773535818::0::1::::PetData<>Resource<><>0<>0<><>::
+PlacedObjectData.gd::GDScript::1496443726406397459::1773533017::0::1::::PlacedObjectData<>Resource<><>0<>0<><>::
+PlayerData.gd::GDScript::3388953025732532226::1773533098::0::1::::PlayerData<>Resource<><>0<>0<><>::
+sand_material.tres::StandardMaterial3D::2730440477743056275::1773625029::0::1::::<><><>0<>0<><>::
+sea_material.tres::StandardMaterial3D::8068678429247221011::1773631327::0::1::::<><><>0<>0<><>::
+::res://resources/materials/::1773620349
+::res://resources/shaders/::1773524285
+outline_shader.gdshader::Shader::2326310805051376244::1773524175::0::1::::<><><>0<>0<><>::
+::res://scenes/::1773617579
+::res://scenes/characters/::1773399959
+Player.gd::GDScript::8920660729458490045::1773400765::0::1::::<>CharacterBody3D<><>0<>0<><>::
+Player.tscn::PackedScene::3928663102969087::1773530226::0::1::::<><><>0<>0<><>::res://scenes/characters/Player.gd<>res://scenes/components/MovementComponent.gd<>res://scenes/components/InteractionComponent.gd<>res://scenes/components/CameraControllerComponent.gd<>res://scenes/components/GrabComponent.gd
+::res://scenes/components/::1773629821
+AtmosphericLightingComponent.gd::GDScript::7685331429480653154::1773619385::0::1::::<>Node3D<><>0<>0<><>::
+AtmosphericLightingComponent.tscn::PackedScene::-1::1773629989::0::1::::<><><>0<>0<><>::res://scenes/components/AtmosphericLightingComponent.gd<>res://scenes/components/RealTimeSkyComponent.gd<>res://scenes/components/DynamicSkyComponent.gd<>res://scenes/components/GroundFogComponent.gd<>uid://c6j1x7p3v5p1u::::res://scenes/ui/DebugTimeUI.tscn
+BillboardViewerComponent.gd::GDScript::8738285232490695144::1773531501::0::1::::BillboardViewerComponent<>Node3D<><>0<>0<><>::
+BillboardViewerComponent.tscn::PackedScene::289187511254553840::1773526220::0::1::::<><><>0<>0<><>::res://scenes/components/BillboardViewerComponent.gd
+CameraControllerComponent.gd::GDScript::3333836827323900463::1773407083::0::1::::CameraControllerComponent<>Node<><>0<>0<><>::
+DebugEndingBall.tscn::PackedScene::-1::1773418658::0::1::::<><><>0<>0<><>::res://scenes/components/DebugEndingTrigger.gd<>res://scenes/components/Interactable.tscn
+DebugEndingTrigger.gd::GDScript::5064546504477075137::1773527388::0::1::::DebugEndingTrigger<>Node<><>0<>0<><>::
+DebugHardResetComponent.gd::GDScript::2722760500047875325::1773533887::0::1::::DebugHardResetComponent<>Node<><>0<>0<><>::
+DebugRestartButton.tscn::PackedScene::-1::1773418655::0::1::::<><><>0<>0<><>::res://scenes/components/DebugRestartTool.gd<>res://scenes/components/Interactable.tscn
+DebugRestartTool.gd::GDScript::9091322366752561502::1773527390::0::1::::DebugRestartTool<>Node<><>0<>0<><>::
+DoorComponent.gd::GDScript::8929789908098557291::1773527386::0::1::::DoorComponent<>Node<><>0<>0<><>::
+DoorComponent.tscn::PackedScene::-1::1773525389::0::1::::<><><>0<>0<><>::res://scenes/components/DoorComponent.gd<>res://scenes/components/Interactable.tscn
+DynamicSkyComponent.gd::GDScript::9147472151329204443::1773617626::0::1::::DynamicSkyComponent<>Node<><>0<>0<><>::
+GrabComponent.gd::GDScript::428107860792280741::1773621408::0::1::::GrabComponent<>Node<><>0<>0<><>::
+GroundFogComponent.gd::GDScript::472092183447714339::1773618828::0::1::::GroundFogComponent<>Node3D<><>0<>0<><>::
+HighlightComponent.gd::GDScript::6840308201479347057::1773525368::0::1::::HighlightComponent<>Node<><>0<>0<><>::
+Interactable.gd::GDScript::812271575532354115::1773527363::0::1::::Interactable<>Node<><>0<>0<><>::
+Interactable.tscn::PackedScene::-1::1773419798::0::1::::<><><>0<>0<><>::res://scenes/components/Interactable.gd
+InteractionComponent.gd::GDScript::2923435434160793225::1773532367::0::1::::InteractionComponent<>Node<><>0<>0<><>::
+MediaFrameComponent.gd::GDScript::224579161863269111::1773533045::0::1::::MediaFrameComponent<>Node<><>0<>0<><>::
+MediaFrameComponent.tscn::PackedScene::-1::1773526980::0::1::::<><><>0<>0<><>::res://scenes/components/MediaFrameComponent.gd
+MovementComponent.gd::GDScript::6742780826264364612::1773415327::0::1::::<>Node<><>0<>0<><>::
+PetStatusComponent.gd::GDScript::426989507586570109::1773535820::0::1::::PetStatusComponent<>Node<><>0<>0<><>::
+PickupComponent.gd::GDScript::7234948783774385821::1773531377::0::1::::PickupComponent<>Node<><>0<>0<><>::
+RealTimeSkyComponent.gd::GDScript::501043746732044265::1773629985::0::1::::RealTimeSkyComponent<>Node<><>0<>0<><>::
+SaveTriggerComponent.gd::GDScript::7028947655075229516::1773533032::0::1::::SaveTriggerComponent<>Node<><>0<>0<><>::
+SceneTransitionComponent.gd::GDScript::5625231345617286832::1773417835::0::1::::<>CanvasLayer<><>0<>0<><>::
+SceneTransitionComponent.tscn::PackedScene::-1::1773417837::0::1::::<><><>0<>0<><>::res://scenes/components/SceneTransitionComponent.gd
+TitleControllerComponent.gd::GDScript::6400675791797164579::1773444250::0::1::::<>CanvasLayer<><>0<>0<><>::
+TitleControllerComponent.tscn::PackedScene::4599340493447062735::1773444289::0::1::::<><><>0<>0<><>::res://scenes/components/TitleControllerComponent.gd
+::res://scenes/environment/::1773631239
+Landscape.tscn::PackedScene::4955100354297963202::1773631239::0::1::::<><><>0<>0<><>::uid://dg2l6w0f4v2p5::::res://resources/data/grass_material.tres<>uid://be5v7q3v5p1m2::::res://resources/data/sand_material.tres<>uid://dm7r7p3v5p1m2::::res://resources/data/sea_material.tres
+MainRoom.gd::GDScript::1658674617510429878::1773533048::0::1::::<>Node3D<><>0<>0<><>::
+MainRoom.tscn::PackedScene::8843659805374349588::1773620745::0::1::::<><><>0<>0<><>::res://scenes/environment/MainRoom.gd<>res://scenes/components/AtmosphericLightingComponent.tscn<>uid://b5x7n7q3v5p::::res://scenes/characters/Player.tscn<>res://scenes/components/DebugRestartButton.tscn<>res://scenes/components/DebugEndingBall.tscn<>res://scenes/components/DoorComponent.tscn<>res://scenes/environment/PlaceableCube.tscn<>res://scenes/environment/PlaceableCylinder.tscn
+MediaFrame.gd::GDScript::2239324021542524292::1773526987::0::1::::<>StaticBody3D<><>0<>0<><>::
+MediaFrame.tscn::PackedScene::7126138864416228524::1773526985::0::1::::<><><>0<>0<><>::res://scenes/environment/MediaFrame.gd<>res://scenes/components/Interactable.tscn<>res://scenes/components/BillboardViewerComponent.tscn<>res://scenes/components/MediaFrameComponent.tscn
+PlaceableCube.tscn::PackedScene::-1::1773533064::0::1::::<><><>0<>0<><>::res://scenes/components/Interactable.tscn<>res://scenes/components/MediaFrameComponent.tscn<>res://scenes/components/BillboardViewerComponent.tscn<>res://scenes/components/PickupComponent.gd<>res://scenes/components/HighlightComponent.gd<>res://scenes/components/SaveTriggerComponent.gd
+PlaceableCylinder.tscn::PackedScene::-1::1773533066::0::1::::<><><>0<>0<><>::res://scenes/components/Interactable.tscn<>res://scenes/components/MediaFrameComponent.tscn<>res://scenes/components/BillboardViewerComponent.tscn<>res://scenes/components/PickupComponent.gd<>res://scenes/components/HighlightComponent.gd<>res://scenes/components/SaveTriggerComponent.gd
+World.tscn::PackedScene::3424490572118532588::1773621408::0::1::::<><><>0<>0<><>::uid://cc40fserw7l25::::res://scripts/environment/World.gd<>uid://ccuj1qnlqvqus::::res://scenes/environment/Landscape.tscn<>uid://c8r7p3v5p1m3e::::res://scenes/environment/MediaFrame.tscn<>uid://dx861xmqm85n1::::res://scenes/environment/MainRoom.tscn<>uid://be16p5t7fi8ub::::res://scenes/components/DebugHardResetComponent.gd
+::res://scenes/shaders/::1773631502
+DynamicSky.gdshader::Shader::8475211542974629210::1773622501::0::1::::<><><>0<>0<><>::
+GroundFog.gdshader::Shader::2813767942228543851::1773621063::0::1::::<><><>0<>0<><>::
+::res://scenes/ui/::1773630041
+DebugTimeUI.gd::GDScript::4512307181220563189::1773630124::0::1::::<>CanvasLayer<><>0<>0<><>::
+DebugTimeUI.tscn::PackedScene::6968896340244207812::1773630041::0::1::::<><><>0<>0<><>::res://scenes/ui/DebugTimeUI.gd
+InteractionHintUI.gd::GDScript::9104748916823827983::1773524173::0::1::::<>Control<><>0<>0<><>::
+InteractionHintUI.tscn::PackedScene::6915572333502131407::1773524171::0::1::::<><><>0<>0<><>::res://scenes/ui/InteractionHintUI.gd
+MediaViewer.tscn::PackedScene::4739718180723127502::1773403688::0::1::::<><><>0<>0<><>::
+TitleScreen.gd::GDScript::3427679622349172859::1773533312::0::1::::<>Control<><>0<>0<><>::
+TitleScreen.tscn::PackedScene::6481199184421315045::1773533287::0::1::::<><><>0<>0<><>::uid://bo3nnajktf6ix::::res://scenes/ui/TitleScreen.gd<>uid://ccuj1qnlqvqus::::res://scenes/environment/Landscape.tscn<>uid://dx861xmqm85n1::::res://scenes/environment/MainRoom.tscn<>res://scenes/components/SceneTransitionComponent.tscn
+::res://scripts/::1773420831
+::res://scripts/environment/::1773533918
+World.gd::GDScript::4974613815721279712::1773533918::0::1::::<>Node3D<><>0<>0<><>::
+::res://scripts/global/::1773402301
+GameStateManager.gd::GDScript::4464221382460122447::1773402155::0::1::::<>Node<><>0<>0<><>::
+Global.gd::GDScript::6334769364836586786::1773533993::0::1::::<>Node<><>0<>0<><>::
+::res://shaders/::1773409132
+grid.gdshader::Shader::830254241326614783::1773409132::0::1::::<><><>0<>0<><>::

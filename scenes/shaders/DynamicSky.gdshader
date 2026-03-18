@@ -61,13 +61,34 @@ void sky() {
     vec3 final_sky = mix(night_sky, day_sky, sun_up);
     final_sky = mix(final_sky, sunset_color, sunset_amount * max(dir.y + 0.2, 0.0));
     
-    // 2. 태양 연출
-    float sun_disk = smoothstep(0.998, 1.0, sun_amount);
-    final_sky += sun_disk * vec3(1.0, 0.9, 0.7) * 2.0;
+    // 2. 태양 연출 (기능별 조절 가이드)
+    // [크기 조절]: 0.9985가 1.0에 가까울수록(예: 0.9995) 태양이 작아지고 예리해짐
+    float sun_disk = smoothstep(0.99999, 1.0, sun_amount); 
     
-    // 3. 달 연출
+    // [후광 조절]: 1500.0(지수)이 클수록 후광이 좁게 응축되고, 1.5(배율)가 클수록 밝아짐
+    float sun_halo = pow(sun_amount, 1500.0) * 1.8;      
+    
+    // [대기 확산]: 50.0이 작을수록 하늘 전체로 빛무리가 넓게 퍼짐
+    float sun_glow = pow(sun_amount, 40.0) * 0.3;       
+    
+    vec3 sun_color_final = mix(vec3(1.0, 1.0, 1.0), vec3(1.0, 0.8, 0.5), 0.5); 
+    sun_color_final = mix(sun_color_final, sunset_color, sunset_amount); 
+    
+    // 최종 노출값 (10.0, 3.0 등)을 조절하여 전체적인 눈부심 정도를 결정
+    final_sky += sun_disk * sun_color_final * 10.0;     // 태양 본체 밝기
+    final_sky += sun_halo * sun_color_final * 3.0;      // 후광 밝기
+    final_sky += sun_glow * sun_color_final * 1.0;      // 빛무리 밝기
+
+    // 3. 달 연출 (기능별 조절 가이드)
+    // [크기 조절]: 0.999가 1.0에 가까울수록 달이 작아짐
     float moon_disk = smoothstep(0.999, 1.0, moon_amount);
-    final_sky += moon_disk * vec3(0.8, 0.9, 1.0) * 1.5;
+    
+    // [후광 조절]: 800.0이 클수록 후광이 좁아짐
+    float moon_halo = pow(moon_amount, 800.0) * 0.8;
+    
+    vec3 moon_color_final = vec3(0.8, 0.9, 1.0);
+    final_sky += moon_disk * moon_color_final * 2.0;     // 달 본체 밝기
+    final_sky += moon_halo * moon_color_final * 1.0;     // 달 후광 밝기
 
     // 4. 구름 (임시 제거: 깨짐 현상 해결 전까지 맑은 하늘 유지)
     /*
@@ -84,12 +105,7 @@ void sky() {
     final_sky = mix(final_sky, cloud_color, cloud);
     */
     
-    // 5. 밤하늘의 별
-    if (sun_up < 0.2 && dir.y > 0.0) {
-        float stars = hash(dir.xz * 500.0);
-        stars = pow(stars, 20.0) * star_density * (1.0 - sun_up * 5.0);
-        final_sky += stars;
-    }
-
+    // 
+    
     COLOR = final_sky;
 }
