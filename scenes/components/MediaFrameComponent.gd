@@ -25,6 +25,13 @@ func _ready() -> void:
 	if interactable:
 		interactable.interacted.connect(_on_interacted)
 	
+	# [중요] D3D12 환경에서의 충돌 방지를 위해 내장 탐색기 강제 사용
+	if file_dialog:
+		file_dialog.use_native_dialog = false 
+		file_dialog.access = FileDialog.ACCESS_FILESYSTEM
+		file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
+		file_dialog.filters = PackedStringArray(["*.png, *.jpg, *.jpeg, *.hdr ; Images"])
+		
 	# 저장된 경로가 있다면 자동 로드
 	if not registered_media_path.is_empty():
 		load_media_from_path(registered_media_path)
@@ -80,9 +87,10 @@ func _on_file_selected(path: String) -> void:
 			global.register_media(path)
 
 func _open_viewer(texture: Texture2D) -> void:
-	if billboard_viewer:
+	if billboard_viewer and last_interactor:
 		is_viewer_open = true
-		billboard_viewer.show_media(texture)
+		# [수정] 배치는 이제 BillboardViewerComponent 내부에서 공통으로 처리합니다.
+		billboard_viewer.show_media(texture, last_interactor)
 
 func _close_viewer() -> void:
 	if not is_viewer_open: return

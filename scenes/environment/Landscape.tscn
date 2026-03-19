@@ -2,12 +2,17 @@
 
 [ext_resource type="Material" uid="uid://dg2l6w0f4v2p5" path="res://resources/data/grass_material.tres" id="1_g"]
 [ext_resource type="Material" uid="uid://be5v7q3v5p1m2" path="res://resources/data/sand_material.tres" id="2_s"]
-[ext_resource type="Material" uid="uid://dm7r7p3v5p1m2" path="res://resources/data/sea_material.tres" id="3_w"]
+[ext_resource type="Shader" uid="uid://gw5mjitwssim" path="res://scenes/environment/ocean.tres" id="3_vcbyq"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_1"]
-material = ExtResource("3_w")
-size = Vector2(1000, 1000)
-orientation = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_df0uy"]
+render_priority = 0
+shader = ExtResource("3_vcbyq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dynax"]
+material = SubResource("ShaderMaterial_df0uy")
+size = Vector2(20000, 20000)
+subdivide_width = 100
+subdivide_depth = 100
 
 [node name="Landscape" type="Node3D" unique_id=1489819246]
 
@@ -26,10 +31,10 @@ sides = 32
 material = ExtResource("1_g")
 
 [node name="BeachSlope" type="CSGBox3D" parent="Terrain" unique_id=404401557]
-transform = Transform3D(1, 0, 0, 0, 0.9976952, 0.06785838, 0, -0.06785838, 0.9976952, 2.1725464, -3.1920612, -92.59708)
-size = Vector3(508.97986, 2, 65)
+transform = Transform3D(1, 0, 0, 0, 0.9910464, 0.13351901, 0, -0.13351901, 0.9910464, 2.1725464, -7.036681, -104.94937)
+size = Vector3(508.97986, 2, 90.39996)
 material = ExtResource("2_s")
 
 [node name="Sea" type="MeshInstance3D" parent="." unique_id=1167538420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13650513, -4.014576, -200.18047)
-mesh = SubResource("QuadMesh_1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13650513, -11.063118, -200.18047)
+mesh = SubResource("PlaneMesh_dynax")

@@ -22,16 +22,24 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if is_active:
-		if keep_upright and is_instance_valid(get_parent()):
-			# 부모의 위치를 따라가되 회전은 독립적으로 유지
-			global_position = get_parent().global_position + Vector3(0, vertical_offset, 0)
-			
+		# [수정] 부모 위치에 고정하지 않고, 호출자(MediaFrame)가 정해준 위치를 유지합니다.
+		# 만약 부모를 계속 따라다녀야 한다면 호출자측에서 업데이트하도록 변경.
+		
 		var camera = get_viewport().get_camera_3d()
 		if camera:
-			look_at(camera.global_position, Vector3.UP)
-			rotate_y(PI) # 메시 방향 보정
+			# [수정] 카메라의 전역 회전값을 그대로 복사하여 화면에 완벽하게 정면으로 평행하게 유지합니다.
+			global_rotation = camera.global_rotation
 
-func show_media(texture: Texture2D) -> void:
+func show_media(texture: Texture2D, interactor: Node3D = null) -> void:
+	# [추가] 인터랙터(플레이어)가 제공되면 프레임과 플레이어 사이의 위치를 계산하여 배치합니다.
+	if interactor and is_instance_valid(get_parent()):
+		var parent_node = get_parent() as Node3D
+		if parent_node:
+			# 중심점 보정 (눈높이 약 1.5m)
+			var frame_pos = parent_node.global_position + Vector3(0, vertical_offset, 0)
+			var player_pos = interactor.global_position + Vector3(0, 1.5, 0)
+			global_position = frame_pos.lerp(player_pos, 0.4) # 40% 지점 배치
+			
 	# 텍스처 적용 및 비율 조정
 	var material = mesh_instance.get_active_material(0).duplicate() as StandardMaterial3D
 	material.albedo_texture = texture

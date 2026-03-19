@@ -1,63 +1,70 @@
 [gd_scene format=3 uid="uid://b5x7n7q3v5p"]
 
-[ext_resource type="Script" path="res://scenes/characters/Player.gd" id="1_p"]
-[ext_resource type="Script" path="res://scenes/components/MovementComponent.gd" id="2_m"]
-[ext_resource type="Script" path="res://scenes/components/InteractionComponent.gd" id="2_i"]
-[ext_resource type="Script" path="res://scenes/components/CameraControllerComponent.gd" id="2_c"]
-[ext_resource type="Script" path="res://scenes/components/GrabComponent.gd" id="4_g"]
+[ext_resource type="Script" uid="uid://d0dh8jujcdter" path="res://scenes/characters/Player.gd" id="1_p"]
+[ext_resource type="Script" uid="uid://bnq62nebx7128" path="res://scenes/components/CameraControllerComponent.gd" id="2_c"]
+[ext_resource type="Script" uid="uid://bhwes38ln7xjl" path="res://scenes/components/InteractionComponent.gd" id="2_i"]
+[ext_resource type="Script" uid="uid://c3ciu6a7fld5u" path="res://scenes/components/MovementComponent.gd" id="2_m"]
+[ext_resource type="Script" uid="uid://gdm4yisvsr3j" path="res://scenes/components/GrabComponent.gd" id="4_g"]
+[ext_resource type="Script" uid="uid://b3t55bvtsfyju" path="res://scenes/components/PlacementComponent.gd" id="8_p"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PlacementUI.tscn" id="9_u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 radius = 0.4
-height = 1.0
+height = 1.9
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1"]
 radius = 0.4
-height = 1.0
+height = 1.9
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1757732843]
 script = ExtResource("1_p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1281081695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=603300742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("CapsuleMesh_1")
 
-[node name="MovementComponent" type="Node" parent="."]
+[node name="MovementComponent" type="Node" parent="." unique_id=2128160804]
 script = ExtResource("2_m")
-speed = 4.0
+speed = 20.0
 acceleration = 8.0
 friction = 12.0
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("interaction_ray")]
+[node name="InteractionComponent" type="Node" parent="." unique_id=693436154 node_paths=PackedStringArray("interaction_ray")]
 script = ExtResource("2_i")
 interaction_ray = NodePath("../CameraPivot/Camera3D/InteractionRay")
 
-[node name="CameraController" type="Node" parent="." node_paths=PackedStringArray("character_body", "camera_pivot")]
+[node name="CameraController" type="Node" parent="." unique_id=1855379982 node_paths=PackedStringArray("character_body", "camera_pivot")]
 script = ExtResource("2_c")
 character_body = NodePath("..")
 camera_pivot = NodePath("../CameraPivot")
 
-[node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1724183697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1543540352]
 current = true
 
-[node name="InteractionRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
+[node name="InteractionRay" type="RayCast3D" parent="CameraPivot/Camera3D" unique_id=1977224329]
 target_position = Vector3(0, 0, -10)
 
-[node name="GrabComponent" type="Node" parent="." node_paths=PackedStringArray("interaction_ray", "hold_point")]
+[node name="GrabPoint" type="Marker3D" parent="CameraPivot/Camera3D" unique_id=1257333522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="HoldPoint" type="Marker3D" parent="CameraPivot/Camera3D" unique_id=2086527587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="GrabComponent" type="Node" parent="." unique_id=96108336 node_paths=PackedStringArray("interaction_ray", "hold_point")]
 script = ExtResource("4_g")
 interaction_ray = NodePath("../CameraPivot/Camera3D/InteractionRay")
 hold_point = NodePath("../CameraPivot/Camera3D/HoldPoint")
 
-[node name="GrabPoint" type="Marker3D" parent="CameraPivot/Camera3D"]
-unique_id = 9991
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+[node name="PlacementUI" parent="." unique_id=423039105 instance=ExtResource("9_u")]
 
-[node name="HoldPoint" type="Marker3D" parent="CameraPivot/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+[node name="PlacementComponent" type="Node" parent="." unique_id=777123 node_paths=PackedStringArray("ray_cast", "placement_ui")]
+script = ExtResource("8_p")
+ray_cast = NodePath("../CameraPivot/Camera3D/InteractionRay")
+placement_ui = NodePath("../PlacementUI")

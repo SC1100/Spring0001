@@ -65,3 +65,4 @@ interact={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+gui/editor/use_native_file_dialogs=false

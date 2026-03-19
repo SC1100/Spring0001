@@ -5,6 +5,47 @@
 [ext_resource type="PackedScene" uid="uid://c8r7p3v5p1m3e" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
 [ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
 [ext_resource type="Script" uid="uid://be16p5t7fi8ub" path="res://scenes/components/DebugHardResetComponent.gd" id="5_d"]
+[ext_resource type="Texture2D" uid="uid://c7mgxw3xk5rr" path="res://assets/sky/industrial_sunset_puresky_4k.hdr" id="6_muoxe"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2m0hy"]
+panorama = ExtResource("6_muoxe")
+
+[sub_resource type="Sky" id="Sky_y3pbq"]
+sky_material = SubResource("PanoramaSkyMaterial_2m0hy")
+
+[sub_resource type="Environment" id="Environment_p2ijd"]
+background_mode = 2
+sky = SubResource("Sky_y3pbq")
+sky_rotation = Vector3(0, 3.2323499, 0)
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.57
+ssao_enabled = true
+ssao_radius = 2.63
+ssao_intensity = 2.2
+ssao_power = 1.0980642
+ssao_detail = 0.42
+ssao_horizon = 0.1
+ssao_sharpness = 1.0
+ssil_enabled = true
+ssil_radius = 1.84
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.37
+sdfgi_min_cell_size = 16.0
+glow_enabled = true
+glow_intensity = 0.18
+glow_strength = 1.12
+glow_bloom = 0.35
+glow_hdr_scale = 1.43
+fog_mode = 1
+fog_light_color = Color(0.8885468, 0.9008052, 0.9171739, 1)
+fog_light_energy = 0.68
+fog_sun_scatter = 0.27
+fog_density = 1.325
+fog_sky_affect = 0.245
+volumetric_fog_density = 0.0
+volumetric_fog_length = 2.0
+volumetric_fog_ambient_inject = 1.01
 
 [sub_resource type="Gradient" id="Gradient_s8qca"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -82,6 +123,9 @@ mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_8ofou")])
 
 [node name="World" type="Node3D" unique_id=781998084]
 script = ExtResource("1_w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2123680650]
+environment = SubResource("Environment_p2ijd")
 
 [node name="Landscape" parent="." unique_id=966430964 instance=ExtResource("2_l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7730484, 0.10249567, 0.2347908)
