@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8r7p3v5p1m3e" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
 [ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
 [ext_resource type="Script" uid="uid://be16p5t7fi8ub" path="res://scenes/components/DebugHardResetComponent.gd" id="5_d"]
+[ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="7_2m0hy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_muoxe"]
 shader = ExtResource("2_muoxe")
@@ -23,10 +24,10 @@ sky_rotation = Vector3(0, 3.2323499, 0)
 reflected_light_source = 2
 tonemap_mode = 2
 tonemap_exposure = 0.57
+ssr_enabled = true
 ssao_enabled = true
 ssao_radius = 2.63
-ssao_intensity = 2.2
-ssao_power = 1.0980642
+ssao_intensity = 1.64
 ssao_detail = 0.42
 ssao_horizon = 0.1
 ssao_sharpness = 1.0
@@ -35,20 +36,21 @@ ssil_radius = 1.84
 ssil_intensity = 1.28
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.37
+sdfgi_bounce_feedback = 1.23
 sdfgi_min_cell_size = 16.0
+sdfgi_energy = 0.4
 glow_enabled = true
 glow_intensity = 0.18
 glow_strength = 1.12
 glow_bloom = 0.35
-glow_hdr_scale = 1.43
+glow_blend_mode = 0
+glow_hdr_scale = 1.48
 fog_mode = 1
 fog_light_color = Color(0.8885468, 0.9008052, 0.9171739, 1)
 fog_light_energy = 0.68
 fog_sun_scatter = 0.27
 fog_density = 1.325
 fog_sky_affect = 0.245
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_length = 2.0
 volumetric_fog_ambient_inject = 1.01
@@ -152,3 +154,6 @@ assets = SubResource("Terrain3DAssets_swo0r")
 show_checkered = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="DeepOcean2" parent="." unique_id=794172668 instance=ExtResource("7_2m0hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7730484, -8.961973, -0.2347908)

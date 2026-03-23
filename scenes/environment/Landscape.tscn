@@ -37,4 +37,5 @@ material = ExtResource("2_s")
 
 [node name="Sea" type="MeshInstance3D" parent="." unique_id=1167538420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13650513, -11.063118, -200.18047)
+visible = false
 mesh = SubResource("PlaneMesh_dynax")
