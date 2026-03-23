@@ -19,9 +19,9 @@ metallic_specular = 0.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oceiv"]
 transparency = 1
 albedo_color = Color(0.9098039, 0.9411765, 1, 0.05882353)
+metallic = 0.05
 metallic_specular = 1.0
-roughness = 0.0
-refraction_enabled = true
+roughness = 0.11
 refraction_scale = 0.01
 
 [node name="MainRoom" type="Node3D" unique_id=1498674118]
@@ -41,13 +41,13 @@ physics_material_override = SubResource("PhysicsMaterial_k6kcy")
 use_collision = true
 
 [node name="Floor_Main" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1797836552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.7817383)
-size = Vector3(20, 0.5, 21.563477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.7817383)
+size = Vector3(20, 2, 21.563477)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Floor_Passage" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1162667343]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.191162, -0.25, 14.640137)
-size = Vector3(8.382324, 0.5, 9.280273)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.191162, -1, 14.640137)
+size = Vector3(8.382324, 2, 9.280273)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Ceiling_Main" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=200000001]
@@ -61,38 +61,38 @@ size = Vector3(8.276367, 0.5, 9.189941)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_L" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1377453371]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.15, 3.5223694, -0.8063965)
-size = Vector3(0.5, 7.9608765, 21.612793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.15, 2.7450104, -0.8063965)
+size = Vector3(0.5, 9.5155945, 21.612793)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_R" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1989158351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.15, 3.53714, -0.7709961)
-size = Vector3(0.5, 7.9000854, 21.541992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.15, 2.7357178, -0.7709961)
+size = Vector3(0.5, 9.50293, 21.541992)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_Inner_R" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1891465621]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, 3.4916992, 14.668884)
-size = Vector3(0.5, 8.006836, 9.337769)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, 2.7353516, 14.668884)
+size = Vector3(0.5, 9.519531, 9.337769)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_Passage_End_R" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=300000001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.15, 3.7497559, 14.5)
-size = Vector3(0.5, 7.4995117, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.15, 2.6739502, 14.5)
+size = Vector3(0.5, 9.651123, 9)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_Back" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1379441678]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.136768, 3.7466125, 19.084055)
-size = Vector3(8.473536, 7.493225, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.136768, 2.6936493, 19.084055)
+size = Vector3(8.473536, 9.599152, 0.5)
 material = SubResource("StandardMaterial3D_bk1gj")
 
-[node name="Wall_Back" type="CSGBox3D" parent="Geometry/RoomCSG/Wall_Back" unique_id=889522849]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.181265, -0.18181086, -9.176806)
-size = Vector3(12.615295, 7.7405396, 0.5)
+[node name="Wall_Back2" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=889522849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.044497, 2.6434913, 9.9072485)
+size = Vector3(12.615295, 9.58316, 0.5)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_Front" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1167465254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16937256, 3.5, -10.765674)
-size = Vector3(20.338745, 7, 1.7313477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00340271, 2.5706787, -10.765674)
+size = Vector3(20.684296, 9.138428, 1.7313477)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Window_Cutout_Center" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=843408164]
@@ -111,7 +111,7 @@ operation = 2
 size = Vector3(3, 5, 8.032227)
 
 [node name="Glass" type="MeshInstance3D" parent="Geometry/RoomCSG" unique_id=330967220]
-transform = Transform3D(18.652752, 0, 0, 0, 6.619618, 0, 0, 0, 0.09498231, 0, 3.2437344, -11)
+transform = Transform3D(18.652752, 0, 0, 0, 6.619618, 0, 0, 0, 0.09498231, 0.1876235, 3.2437344, -11)
 mesh = SubResource("BoxMesh_bk1gj")
 surface_material_override/0 = SubResource("StandardMaterial3D_oceiv")
 

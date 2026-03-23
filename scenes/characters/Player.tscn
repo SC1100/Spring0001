@@ -10,21 +10,21 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 radius = 0.4
-height = 1.9
+height = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1"]
 radius = 0.4
-height = 1.9
+height = 3.0
 
 [node name="Player" type="CharacterBody3D" unique_id=1757732843]
 script = ExtResource("1_p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1281081695]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=603300742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 mesh = SubResource("CapsuleMesh_1")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=2128160804]
@@ -43,10 +43,12 @@ character_body = NodePath("..")
 camera_pivot = NodePath("../CameraPivot")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1724183697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1543540352]
 current = true
+fov = 90.0
+far = 236.48
 
 [node name="InteractionRay" type="RayCast3D" parent="CameraPivot/Camera3D" unique_id=1977224329]
 target_position = Vector3(0, 0, -10)

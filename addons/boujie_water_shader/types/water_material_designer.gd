@@ -86,7 +86,7 @@ func _update_lod():
 	var ocean = get_node_or_null(ocean_path)
 	var follower = get_node_or_null(camera_follower_path)
 	if camera:
-		var middle = camera.far / 2.0  # TODO: paramaterize heuristic
+		var middle = camera.far / 2.0 # TODO: paramaterize heuristic
 		var unit_size = 1.0
 		if ocean:
 			middle = ocean.total_width / 2.0

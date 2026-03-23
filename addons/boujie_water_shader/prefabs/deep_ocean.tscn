@@ -71,7 +71,6 @@ snap_unit = 32.0
 [node name="WaterMaterialDesigner" type="Node" parent="." unique_id=240491365]
 script = ExtResource("4_aqj8w")
 material = ExtResource("2_mvet8")
-update_when_camera_far_changes = true
 ocean_path = NodePath("..")
 camera_follower_path = NodePath("../CameraFollower3D")
 distance_fade_far = 4000

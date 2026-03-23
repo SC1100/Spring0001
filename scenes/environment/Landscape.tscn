@@ -21,18 +21,21 @@ use_collision = true
 
 [node name="Ground" type="CSGBox3D" parent="Terrain" unique_id=751421944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.9999962, 95.44824)
+visible = false
 size = Vector3(511, 2, 312)
 material = ExtResource("1_g")
 
 [node name="Hill" type="CSGCylinder3D" parent="Terrain" unique_id=840809096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 radius = 30.0
 sides = 32
 material = ExtResource("1_g")
 
 [node name="BeachSlope" type="CSGBox3D" parent="Terrain" unique_id=404401557]
-transform = Transform3D(1, 0, 0, 0, 0.9910464, 0.13351901, 0, -0.13351901, 0.9910464, 2.1725464, -7.036681, -104.94937)
-size = Vector3(508.97986, 2, 90.39996)
+transform = Transform3D(1, 0, 0, 0, 0.9910464, 0.13351901, 0, -0.13351901, 0.9910464, 2.1725464, -24.5626, -235.03569)
+visible = false
+size = Vector3(508.97986, 2, 352.92313)
 material = ExtResource("2_s")
 
 [node name="Sea" type="MeshInstance3D" parent="." unique_id=1167538420]
