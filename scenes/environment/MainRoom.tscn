@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx861xmqm85n1"]
 
-[ext_resource type="PackedScene" path="res://scenes/components/AtmosphericLightingComponent.tscn" id="1_a"]
+[ext_resource type="PackedScene" uid="uid://1kxe0pv83bs6" path="res://scenes/components/AtmosphericLightingComponent.tscn" id="1_a"]
 [ext_resource type="Script" uid="uid://xvqemxc4ftk5" path="res://scenes/environment/MainRoom.gd" id="1_m"]
 [ext_resource type="PackedScene" uid="uid://b5x7n7q3v5p" path="res://scenes/characters/Player.tscn" id="2_p"]
 [ext_resource type="PackedScene" path="res://scenes/components/DebugRestartButton.tscn" id="4_r"]
@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" path="res://scenes/environment/PlaceableCylinder.tscn" id="8_y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k6kcy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bk1gj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oceiv"]
+transparency = 1
+albedo_color = Color(0.9098039, 0.9411765, 1, 0.05882353)
+metallic_specular = 1.0
+roughness = 0.0
 
 [node name="MainRoom" type="Node3D" unique_id=1498674118]
 script = ExtResource("1_m")
@@ -85,6 +93,11 @@ size = Vector3(3, 5, 7.676758)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.5, -13.766113)
 operation = 2
 size = Vector3(3, 5, 8.032227)
+
+[node name="Glass" type="MeshInstance3D" parent="Geometry/RoomCSG" unique_id=330967220]
+transform = Transform3D(18.679623, 0, 0, 0, 6.629154, 0, 0, 0, 0.16656129, 0, 3.2437344, -11)
+mesh = SubResource("BoxMesh_bk1gj")
+surface_material_override/0 = SubResource("StandardMaterial3D_oceiv")
 
 [node name="Player" parent="." unique_id=781874979 instance=ExtResource("2_p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, 15)

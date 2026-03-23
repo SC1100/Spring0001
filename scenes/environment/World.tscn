@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cc40fserw7l25" path="res://scripts/environment/World.gd" id="1_w"]
 [ext_resource type="PackedScene" uid="uid://ccuj1qnlqvqus" path="res://scenes/environment/Landscape.tscn" id="2_l"]
+[ext_resource type="Shader" uid="uid://duan2s1xfd50q" path="res://scenes/shaders/BlendingPanorama.gdshader" id="2_muoxe"]
 [ext_resource type="PackedScene" uid="uid://c8r7p3v5p1m3e" path="res://scenes/environment/MediaFrame.tscn" id="3_f"]
 [ext_resource type="PackedScene" uid="uid://dx861xmqm85n1" path="res://scenes/environment/MainRoom.tscn" id="4_r"]
 [ext_resource type="Script" uid="uid://be16p5t7fi8ub" path="res://scenes/components/DebugHardResetComponent.gd" id="5_d"]
-[ext_resource type="Texture2D" uid="uid://c7mgxw3xk5rr" path="res://assets/sky/industrial_sunset_puresky_4k.hdr" id="6_muoxe"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2m0hy"]
-panorama = ExtResource("6_muoxe")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_muoxe"]
+shader = ExtResource("2_muoxe")
+shader_parameter/mix_amount = 0.0
+shader_parameter/source_rotation = Vector3(0, 0, 0)
+shader_parameter/target_rotation = Vector3(0, 0, 0)
 
 [sub_resource type="Sky" id="Sky_y3pbq"]
-sky_material = SubResource("PanoramaSkyMaterial_2m0hy")
+sky_material = SubResource("ShaderMaterial_muoxe")
 
 [sub_resource type="Environment" id="Environment_p2ijd"]
 background_mode = 2
@@ -27,9 +30,15 @@ ssao_power = 1.0980642
 ssao_detail = 0.42
 ssao_horizon = 0.1
 ssao_sharpness = 1.0
+ssr_enabled = true
+ssr_max_steps = 64
+ssr_fade_in = 0.15
+ssr_fade_out = 2.0
 ssil_enabled = true
 ssil_radius = 1.84
+ssil_intensity = 1.28
 sdfgi_enabled = true
+sdfgi_use_occlusion = true
 sdfgi_bounce_feedback = 1.37
 sdfgi_min_cell_size = 16.0
 glow_enabled = true
@@ -43,6 +52,7 @@ fog_light_energy = 0.68
 fog_sun_scatter = 0.27
 fog_density = 1.325
 fog_sky_affect = 0.245
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_length = 2.0
 volumetric_fog_ambient_inject = 1.01
@@ -124,7 +134,7 @@ mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_8ofou")])
 [node name="World" type="Node3D" unique_id=781998084]
 script = ExtResource("1_w")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2123680650]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2123680650 groups=["world_env"]]
 environment = SubResource("Environment_p2ijd")
 
 [node name="Landscape" parent="." unique_id=966430964 instance=ExtResource("2_l")]

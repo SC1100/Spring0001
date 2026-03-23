@@ -1,27 +1,43 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://1kxe0pv83bs6"]
 
-[ext_resource type="Script" path="res://scenes/components/AtmosphericLightingComponent.gd" id="1_l"]
-[ext_resource type="Script" path="res://scenes/components/RealTimeSkyComponent.gd" id="2_s"]
+[ext_resource type="Script" uid="uid://dhq3jyngjbtdy" path="res://scenes/components/AtmosphericLightingComponent.gd" id="1_l"]
+[ext_resource type="Script" uid="uid://heyd8utiv6sb" path="res://scenes/components/RealTimeSkyComponent.gd" id="2_s"]
+[ext_resource type="Texture2D" uid="uid://tymqep55bqjs" path="res://assets/dawn_qwantani_dusk_2_puresky_4k.exr" id="3_by7xj"]
+[ext_resource type="Texture2D" uid="uid://06o748ctrjky" path="res://assets/day_citrus_orchard_puresky_4k.exr" id="4_l71er"]
+[ext_resource type="Texture2D" uid="uid://bcvgt2xduo3x3" path="res://assets/sunset_industrial_sunset_puresky_4k.exr" id="5_2kbn3"]
 [ext_resource type="PackedScene" uid="uid://c6j1x7p3v5p1u" path="res://scenes/ui/DebugTimeUI.tscn" id="5_u"]
+[ext_resource type="Texture2D" uid="uid://c72wi2epu10it" path="res://assets/night_qwantani_moonrise_puresky_4k.exr" id="6_bi6qf"]
 
-[node name="AtmosphericLighting" type="Node3D"]
+[node name="AtmosphericLighting" type="Node3D" unique_id=227768173]
 script = ExtResource("1_l")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1551070704]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 shadow_blur = 1.5
 
-[node name="MoonLight" type="DirectionalLight3D" parent="."]
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=1351880752]
 transform = Transform3D(0.866025, 0.433013, -0.25, 0, 0.5, 0.866025, 0.5, -0.75, 0.433013, 0, 0, 0)
 light_color = Color(0.6, 0.73, 1, 1)
 light_energy = 0.5
 shadow_enabled = true
 shadow_blur = 2.0
 
-[node name="RealTimeSky" type="Node" parent="."]
+[node name="RealTimeSky" type="Node" parent="." unique_id=1623762141]
 script = ExtResource("2_s")
 day_intensity = 2.0
 night_intensity = 0.3
+night_texture = ExtResource("6_bi6qf")
+dawn_texture = ExtResource("3_by7xj")
+day_texture = ExtResource("4_l71er")
+sunset_texture = ExtResource("5_2kbn3")
+tp_night = 21.0
+rot_dawn = Vector3(0, 2.422, 0)
+rot_day = Vector3(0, 1.652, 0)
+rot_sunset = Vector3(0, 2.407, 0)
+rot_night = Vector3(0, 2.422, 0)
+day_exposure = 0.5
+night_exposure = 0.2
+day_bg_energy = 0.6
 
-[node name="DebugTimeUI" parent="." instance=ExtResource("5_u")]
+[node name="DebugTimeUI" parent="." unique_id=1806639101 instance=ExtResource("5_u")]
