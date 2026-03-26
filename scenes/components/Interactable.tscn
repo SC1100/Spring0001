@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://cg3bggfb323t8"]
 
-[ext_resource type="Script" path="res://scenes/components/Interactable.gd" id="1_i"]
+[ext_resource type="Script" uid="uid://ltp82jbnab5t" path="res://scenes/components/Interactable.gd" id="1_i"]
 
-[node name="Interactable" type="Node"]
+[node name="Interactable" type="Node" unique_id=80731872]
 script = ExtResource("1_i")
+interact_distance_limit = 5.0

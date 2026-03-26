@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene format=3 uid="uid://dcgwx2dgwj50n"]
 
-[ext_resource type="Script" path="res://scenes/components/DoorComponent.gd" id="1_d"]
-[ext_resource type="PackedScene" path="res://scenes/components/Interactable.tscn" id="2_i"]
+[ext_resource type="Script" uid="uid://d0hwlnn4jn5xn" path="res://scenes/components/DoorComponent.gd" id="1_d"]
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="2_i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(0.2, 6.2, 3.2)
@@ -13,17 +13,16 @@ size = Vector3(0.2, 6.2, 3.2)
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[node name="DoorComponent" type="StaticBody3D"]
+[node name="DoorComponent" type="StaticBody3D" unique_id=2117878847]
 script = ExtResource("1_d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1533460837]
 shape = SubResource("BoxShape3D_1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1218544028]
 mesh = SubResource("BoxMesh_1")
 surface_material_override/0 = SubResource("StandardMaterial3D_1")
 
-[node name="Interactable" parent="." instance=ExtResource("2_i")]
+[node name="Interactable" parent="." unique_id=1347904203 instance=ExtResource("2_i")]
 interaction_text = "들어가기 (첫 만남)"
+interact_distance_limit = 5.0
