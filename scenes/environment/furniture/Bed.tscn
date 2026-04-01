@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bqu58w0tya5d5"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://ccron4hgx0ada" path="res://assets/funiture/bed.glb" id="4_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(51.703125, 7.4282227, 23.558594)
+
+[node name="Bed" type="StaticBody3D" unique_id=1182180713 groups=["Furniture", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=795283818 instance=ExtResource("4_m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=321342554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.824219, 5.2858887, -5.3085938)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=1966889265 instance=ExtResource("1_i")]
+interaction_text = "침대 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1976462895]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." unique_id=1763759377 instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." unique_id=402760462 instance=ExtResource("6_bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.824, 5.286, -5.309)

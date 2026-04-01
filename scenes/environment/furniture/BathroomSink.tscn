@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bu2od4ct6luxp"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://c2xvi4lcsx1or" path="res://assets/funiture/bathroom_sink_02.glb" id="4_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.31743163, 0.17797852, 0.38779297)
+
+[node name="BathroomSink" type="StaticBody3D" unique_id=1188454647 groups=["Furniture", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=266872522 instance=ExtResource("4_m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1839270387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0088135, -0.024536133, 0.0015136749)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=621935378 instance=ExtResource("1_i")]
+interaction_text = "세면대 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1697133693]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." unique_id=1662411805 instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." unique_id=858751531 instance=ExtResource("6_bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009, -0.025, 0.002)

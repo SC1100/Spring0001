@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cwqknl1fwalma"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://dbcwsxe1pdv86" path="res://scenes/components/PickupComponent.gd" id="2_p"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://cnbm885f0c0k3" path="res://assets/funiture/bathtub.glb" id="4_m"]
+[ext_resource type="PackedScene" uid="uid://btp1pwyfkbxge" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://crf5h278mly5y" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(12.53, 1.87, 4.48)
+
+[node name="Bathtub" type="StaticBody3D" unique_id=1188454648 groups=["Furniture", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=266872523 instance=ExtResource("4_m")]
+transform = Transform3D(0.07, 0, 0, 0, 0.03316, 0, 0, 0, 0.05538, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1839270388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042, -0.936, 0.002)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=621935379 instance=ExtResource("1_i")]
+interaction_text = "욕조 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1697133694]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." instance=ExtResource("6_bv")]
+transform = Transform3D(12.53, 0, 0, 0, 1.87, 0, 0, 0, 1, 0.042, -0.936, 0.002)
