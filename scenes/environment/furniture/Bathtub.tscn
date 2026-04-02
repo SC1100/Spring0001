@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cwqknl1fwalma"]
 
 [ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
-[ext_resource type="Script" uid="uid://dbcwsxe1pdv86" path="res://scenes/components/PickupComponent.gd" id="2_p"]
 [ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
 [ext_resource type="PackedScene" uid="uid://cnbm885f0c0k3" path="res://assets/funiture/bathtub.glb" id="4_m"]
-[ext_resource type="PackedScene" uid="uid://btp1pwyfkbxge" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
-[ext_resource type="PackedScene" uid="uid://crf5h278mly5y" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
 size = Vector3(12.53, 1.87, 4.48)
@@ -26,7 +25,6 @@ interaction_text = "욕조 조사 (E)"
 [node name="HighlightComponent" type="Node" parent="." unique_id=1697133694]
 script = ExtResource("3_h")
 
-[node name="MediaFrameComponent" parent="." instance=ExtResource("5_mf")]
+[node name="MediaFrameComponent" parent="." unique_id=1512123786 instance=ExtResource("5_mf")]
 
-[node name="BillboardViewer" parent="." instance=ExtResource("6_bv")]
-transform = Transform3D(12.53, 0, 0, 0, 1.87, 0, 0, 0, 1, 0.042, -0.936, 0.002)
+[node name="BillboardViewer" parent="." unique_id=1032801218 instance=ExtResource("6_bv")]

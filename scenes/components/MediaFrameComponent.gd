@@ -46,16 +46,34 @@ func load_media_from_path(path: String) -> void:
 			registered_media_path = path # 경로 동기화
 			print("[MediaFrameComponent] Media restored from: ", path)
 
+var interaction_start_pos: Vector3 = Vector3.ZERO
+
 func _process(_delta: float) -> void:
 	if is_viewer_open and last_interactor and interactable:
-		var dist = get_parent().global_position.distance_to(last_interactor.global_position)
-		if dist > interactable.interact_distance_limit + 1.0: # 여유 거리 1m 추가
+		# [수정] 거대한 물체의 중심점 대신, 플레이어가 상호작용을 시작한 위치를 기준으로 도망가는지 판정
+		var dist = interaction_start_pos.distance_to(last_interactor.global_position)
+		if dist > interactable.interact_distance_limit + 1.0: # 플레이어가 해당 자리에서 1m 이상 벗어나면 끄기
 			_close_viewer()
 
+var _ignore_next_interact: bool = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_viewer_open and event.is_action_pressed("interact"):
+		_close_viewer()
+		_ignore_next_interact = true
+		get_viewport().set_input_as_handled()
+
 func _on_interacted(interactor: Node3D, is_long_press: bool) -> void:
+	if _ignore_next_interact and not is_long_press:
+		_ignore_next_interact = false
+		return
+		
 	last_interactor = interactor
+	if is_instance_valid(interactor):
+		interaction_start_pos = interactor.global_position
 	
 	if is_long_press:
+
 		# 롱 프레스: 무조건 파일 탐색기 (교체)
 		if file_dialog:
 			file_dialog.popup_centered()

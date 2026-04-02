@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cvya3wk0oqed7"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://bviouq7rhc1qm" path="res://assets/funiture/kallax_shelf.glb" id="4_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.8, 1.5, 0.4)
+
+[node name="KallaxShelf" type="StaticBody3D" unique_id=647151671 groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=773297590 instance=ExtResource("4_m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1121506497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=1047258103 instance=ExtResource("1_i")]
+interaction_text = "선반 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=62403118]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." unique_id=1551438498 instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." unique_id=421087037 instance=ExtResource("6_bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38596833, 0)

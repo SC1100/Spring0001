@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://b0oje7ea7mepo"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Texture2D" uid="uid://bsyrg78r86knx" path="res://assets/funiture/mirror_0.jpg" id="1_ks160"]
+[ext_resource type="Texture2D" uid="uid://blx1be4l34ach" path="res://assets/funiture/mirror_1.png" id="2_qk3uq"]
+[ext_resource type="Texture2D" uid="uid://c88khml7i4tfk" path="res://assets/funiture/mirror_2.png" id="3_dteq5"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuv0k"]
+resource_name = "Mirror"
+cull_mode = 2
+albedo_texture = ExtResource("1_ks160")
+metallic = 1.0
+metallic_texture = ExtResource("2_qk3uq")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_qk3uq")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_dteq5")
+ao_enabled = true
+ao_texture = ExtResource("2_qk3uq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bk01w"]
+_surfaces = [{
+"aabb": AABB(-0.506157, -0.510566, -0.499971, 1.012314, 1.021132, 3.583971),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAAAAIABQACAAEAAgAFAAQAAQAGAAUABgABAAMABwADAAAAAwAHAAYAAAAEAAcACAAFAAYACQAEAAUABQAIAAkACgAHAAQABAAJAAoACwAGAAcABgALAAgABwAKAAsACAAMAAkADAAKAAkADQAIAAsACgANAAsADAAIAA4ACAANAA4ACgAMAA8ADQAKAA8AEAAPAAwAEQAOAA0AEgANAA8ADQASABEADwAQABIADgARABMAEwAMAA4AEgATABEADAATABAAEwASABAA"),
+"name": "Mirror",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("VwUG9f//AACn+vgK//8AAFcF+Ar//wAAp/oG9f//AACOAaYCbUcAAHD+pgJtRwAAcP5Y/W1HAACOAVj9bUcAAP////9tRwAA//8AAG1HAAAAAAAAbUcAAAAA//9tRwAA//8AAAAAAAAAAP//AAAAAP////8AAAAAAAAAAAAAAABw/qYCAAAAAI4BWP0AAAAAjgGmAgAAAABw/lj9AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a66jx"]
+resource_name = "Sketchfab_Scene_defaultMaterial"
+_surfaces = [{
+"aabb": AABB(-0.506157, -0.510566, -0.499971, 1.012314, 1.021132, 3.583971),
+"attribute_data": PackedByteArray("vFUS1eQa7ZfkGhLVvFXtlxT9GkC496w6uPcaQBT9rDqBHUJdiVw6HoEdOh7sXJAdHR2QHYlcQl0dHe1d7FztXRT9oEy49zJHuPegTBT9Mkcm911WPvsvUib3L1I++11WJvf5Xz77y1sm98tbPvv5X/yATWKGiIZO34CGTmmITWLi93MUC/2pBrX3qQbd/HMUmJiGTg6RTWK2mE1iLJGGTt38eiK090QwC/1EMOL3eiKEl2zJ79bCyOeXwshS12zJUtcPieeXuonv1rqJhJcPiexc7V2JXDoeiVxCXexckB1S12zJ79a6ie/WwshS1w+JhJcPieeXwsjnl7qJhJdsyR0dkB2BHUJdgR06Hh0d7V0="),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACwAKAAkACgALAAwACQAIAA0ADgANAAgADQAOAA8AEAARABIAEQAQABMAFAAVABYAFQAUABcAGAAZABoAGQAYABsAHAAdAB4AHQAcAB8AIAAhACIAIQAgACMAJAAlACYAJQAkACcAKAApACoAKQAoACsALAAtAC4ALQAsAC8AMAAxADIAMQAwADMANAA1ADYANQA0ADcAOAA5ADoAOQA4ADsAPAA9AD4APQA8AD8AQABBAEIAQQBAAEMA"),
+"material": SubResource("StandardMaterial3D_nuv0k"),
+"name": "Mirror",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("VwUG9f///7+n+vgK////v1cF+Ar///+/p/oG9f///78AAP//AABU1f////9tR1TVAAD//21HVNX/////AABU1Y4BpgIAAP//cP5Y/QAA//+OAVj9AAD///////8AAP//AAD//wAA//9w/qYCAAD//wAAAAAAAP////8AAAAA//8AAAAAbUdU1f//AAAAAFTVAAAAAAAAVNX//wAAbUdU1f////9tR/+///8AAAAA/7///wAAbUf/v/////8AAP+/AAD//wAA/78AAAAAbUf/vwAAAAAAAP+/AAD//21H/79XBfgK//95v3D+pgJtR3m/jgGmAm1Heb+n+vgK//95v6f6+Ar//zHVcP5Y/W1HMdVw/qYCbUcx1af6BvX//zHVp/oG9f//eb+OAVj9bUd5v3D+WP1tR3m/VwUG9f//eb9XBQb1//8x1Y4BpgJtRzHVjgFY/W1HMdVXBfgK//8x1QAA//9tRwCAcP5Y/W1HAICOAVj9bUcAgP////9tRwCA//8AAG1HAICOAaYCbUcAgHD+pgJtRwCAAAAAAG1HAID//wAAAAD//3D+WP0AAP//cP6mAgAA////////AAD///////9tRwCAcP6mAm1HAIBw/lj9bUcAgP//AABtRwCAAAAAAG1HAICOAVj9bUcAgI4BpgJtRwCAAAD//21HAIAAAP//AAD//44BpgIAAP//jgFY/QAA//8AAAAAAAD///////////////////////9U1aoqVNWqKlTVqipU1aoq////f////3////9/////f////3////9/////f////3+qKlTVqipU1aoqVNWqKlTV/38AAP9/AAD/fwAA/38AAP9/////f////3////9///8AAP9/AAD/fwAA/38AAP9/lSqVKpUqlSqVKpUqlSqVKv///3////9/////f////39p1WnVadVp1WnVadVp1WnV/3////9/////f////3////9/////f////3////9////+//9//v//f/j/+X/4/wWAvf3+/739/v/f/f7/lv3+//9/vX3/f719/3+Wff9/333+//9//v//f/j/+X/4/wWA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bk01w")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(9.332031, 8.991455, 3)
+
+[node name="Mirror" type="StaticBody3D" unique_id=1806420192 groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="pCube23" type="Node3D" parent="." unique_id=2045116066]
+transform = Transform3D(165.15111, 0, 0, 0, 96.22851, 0, 0, 0, 0.696603, 0, 0, 0)
+
+[node name="defaultMaterial" type="MeshInstance3D" parent="pCube23" unique_id=1048694192]
+mesh = SubResource("ArrayMesh_a66jx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1376326017]
+transform = Transform3D(17.639997, 0, 0, 0, 10.530001, 0, 0, 0, 1, -1.2714846, 0.0011191368, 0.95350194)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=2084753444 instance=ExtResource("1_i")]
+interaction_text = "거울 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1287167003]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." unique_id=846241886 instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." unique_id=1696576478 instance=ExtResource("6_bv")]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b31wqawmcldf8"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://dtruj73xocdax" path="res://assets/funiture/office_chair.glb" id="4_m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.6, 1, 0.6)
+
+[node name="OfficeChair" type="StaticBody3D" unique_id=1654264429 groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=1478196105 instance=ExtResource("4_m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=251359555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=1376379903 instance=ExtResource("1_i")]
+interaction_text = "의자 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1323338845]
+script = ExtResource("3_h")

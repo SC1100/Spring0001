@@ -102,10 +102,14 @@ func _attempt_interaction(is_long_press: bool) -> void:
 		interactable_node = collider.find_child("*Interactable*", false, false)
 		
 	if interactable_node:
-		var dist = collider.global_position.distance_to(get_parent().global_position)
+		# [수정] 거대한 가구(침대 등)의 중심점이 치우쳐 있어 상호작용이 막히는 문제를 해결합니다.
+		# 하이라이트가 뜨는 표면 충돌 지점(Hit Point)을 기준으로 거리를 재어, 하이라이트 = 100% 작동으로 완벽 동기화.
+		var hit_point = interaction_ray.get_collision_point()
+		var dist = hit_point.distance_to(get_parent().global_position)
 		var limit = interactable_node.get("interact_distance_limit") if interactable_node.has_method("get") else 3.0
 		
-		if dist <= limit:
+		# 레이캐스트가 닿았다는 것 자체가 근접했다는 의미이므로 여유 거리를 주어 하이라이트와 판정 완벽 일치보장
+		if dist <= limit + 1.0:
 			if interactable_node.has_method("interact"):
 				interactable_node.interact(get_parent(), is_long_press)
 			

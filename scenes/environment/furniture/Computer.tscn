@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dpl15gyir1dk7"]
+
+[ext_resource type="PackedScene" uid="uid://bwrad7a7ybiyb" path="res://assets/funiture/computer.glb" id="4_m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(0.5, 0.6270752, 0.8647461)
+
+[node name="Computer" type="StaticBody3D" unique_id=1351102298 groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=1960287677 instance=ExtResource("4_m")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=396502689]
+transform = Transform3D(24.108004, 0, 0, 0, 12.16169, 0, 0, 0, 1, 0, 1.0227246, -0.18237305)
+shape = SubResource("BoxShape3D_1")

@@ -27,4 +27,4 @@ script = ExtResource("3_h")
 [node name="MediaFrameComponent" parent="." unique_id=1763759377 instance=ExtResource("5_mf")]
 
 [node name="BillboardViewer" parent="." unique_id=402760462 instance=ExtResource("6_bv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.824, 5.286, -5.309)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)

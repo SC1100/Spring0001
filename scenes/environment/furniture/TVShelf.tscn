@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bbnitu2omrv0t"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
+[ext_resource type="PackedScene" uid="uid://ckeorrngicdgx" path="res://assets/funiture/simple_tv_shelf_210cm.glb" id="4_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(2.1, 0.2055664, 0.4)
+
+[node name="TVShelf" type="StaticBody3D" unique_id=1505982490 groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." unique_id=1882903595 instance=ExtResource("4_m")]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1417142162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1027832, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." unique_id=1992567807 instance=ExtResource("1_i")]
+interaction_text = "선반 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1584373308]
+script = ExtResource("3_h")
+
+[node name="MediaFrameComponent" parent="." unique_id=1362510305 instance=ExtResource("5_mf")]
