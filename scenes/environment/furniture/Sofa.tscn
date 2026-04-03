@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://SofaScene_ID"]
+
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="2_h"]
+[ext_resource type="PackedScene" path="res://assets/funiture/sofa.glb" id="3_m"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="4_mf"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="5_bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(2.2, 0.8, 1.0)
+
+[node name="Sofa" type="StaticBody3D" groups=["Furniture", "Interactable", "Persistent"]]
+collision_mask = 3
+
+[node name="Model" parent="." instance=ExtResource("3_m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_1")
+
+[node name="Interactable" parent="." instance=ExtResource("1_i")]
+interaction_text = "소파 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="."]
+script = ExtResource("2_h")
+
+[node name="MediaFrameComponent" parent="." instance=ExtResource("4_mf")]
+
+[node name="BillboardViewer" parent="." instance=ExtResource("5_bv")]

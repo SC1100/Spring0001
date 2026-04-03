@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" path="res://scenes/environment/furniture/VictorianBed.tscn" id="17_vbed"]
 [ext_resource type="PackedScene" uid="uid://cvya3wk0oqed7" path="res://scenes/environment/furniture/KallaxShelf.tscn" id="18_kshelf"]
 [ext_resource type="PackedScene" uid="uid://b0oje7ea7mepo" path="res://scenes/environment/furniture/Mirror.tscn" id="19_mirror"]
+[ext_resource type="PackedScene" path="res://scenes/environment/furniture/Sofa.tscn" id="20_sofa"]
+[ext_resource type="PackedScene" uid="uid://biti7i2m6nvip" path="res://scenes/environment/furniture/InteriorWoodDoors.tscn" id="21_doors"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tf17"]
 albedo_color = Color(0.6789437, 0.6789437, 0.6789437, 1)
@@ -113,7 +115,7 @@ transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -4
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -8.872494, 25, 1.8777299)
 
 [node name="TV" parent="Geometry" unique_id=228962655 instance=ExtResource("16_tv")]
-transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -8.880114, 26.249819, 1.5001884)
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -8.880114, 26.249819, 1.7608914)
 
 [node name="VictorianBed" parent="Geometry" unique_id=1210252768 instance=ExtResource("17_vbed")]
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 30.337723, 24.287203, 2.3956456)
@@ -135,6 +137,12 @@ transform = Transform3D(-4.5, 0, 3.934025e-07, 0, 4.5, 0, -3.934025e-07, 0, -4.5
 
 [node name="Mirror2" parent="Geometry" unique_id=1806420192 instance=ExtResource("19_mirror")]
 transform = Transform3D(-2.7939677e-09, 0, -0.030000001, 0, 0.03, 0, 0.030000001, 0, -2.7939677e-09, 34.89593, 29.509224, 24.418196)
+
+[node name="Sofa" parent="Geometry" unique_id=778438447 instance=ExtResource("20_sofa")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 12.27458, 26.225117, 1.9863243)
+
+[node name="InteriorWoodDoors" parent="Geometry" unique_id=4394763 instance=ExtResource("21_doors")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32.118244, 25.014853, 9.258609)
 
 [node name="door" type="CSGBox3D" parent="Geometry" unique_id=1189849296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.200777, 19.32593, 41.96524)
@@ -352,35 +360,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.056303, 4.0793457, -11.048
 operation = 2
 size = Vector3(3, 4.8413086, 3)
 
-[node name="Window_Cutout_Right10" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=324813441]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 29.298477, 2.5216045, 19.717825)
+[node name="Window_Cutout_Right18" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1737195392]
+transform = Transform3D(5.3765007e-06, 0, 1, 0, 1, 0, -1, 0, 5.3765007e-06, 28.45845, 2.6729717, 18.717825)
 operation = 2
-size = Vector3(4, 5, 3)
+size = Vector3(4, 5.3027344, 2.6699219)
 
-[node name="Window_Cutout_Right13" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1780085529]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -38.899998, 2.5216045, 19.717825)
+[node name="Window_Cutout_Right17" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=684766356]
+transform = Transform3D(-2.6663947e-06, 0, -1, 0, 1, 0, 1, 0, -2.6663947e-06, 10.45845, 2.6729717, 18.717825)
 operation = 2
-size = Vector3(4, 5, 3)
+size = Vector3(4, 5.3027344, 2.6699219)
+
+[node name="Window_Cutout_Right16" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1579864679]
+transform = Transform3D(-1, 0, 1.3113416e-06, 0, 1, 0, -1.3113416e-06, 0, -1, 13.45845, 2.6729717, 14.717825)
+operation = 2
+size = Vector3(4, 5.3027344, 2.6699219)
+
+[node name="Window_Cutout_Right13" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1756755888]
+transform = Transform3D(6.556708e-07, 0, 1, 0, 1, 0, -1, 0, 6.556708e-07, -14.54155, 2.6729717, 9.717825)
+operation = 2
+size = Vector3(4, 5.3027344, 2.6699219)
+
+[node name="Window_Cutout_Right19" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=2131334765]
+transform = Transform3D(6.556708e-07, 0, 1, 0, 1, 0, -1, 0, 6.556708e-07, -38.065037, 2.6729717, 19.717825)
+operation = 2
+size = Vector3(4, 5.3027344, 2.6699219)
 
 [node name="Window_Cutout_Right12" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1083365627]
-transform = Transform3D(3.059797e-07, 0, 1, 0, 1, 0, -1, 0, 3.059797e-07, -31.899998, 2.5216045, 9.717825)
+transform = Transform3D(3.059797e-07, 0, 1, 0, 1, 0, -1, 0, 3.059797e-07, -32.1218, 2.6729717, 9.717825)
 operation = 2
-size = Vector3(4, 5, 3)
-
-[node name="Window_Cutout_Right11" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1715273605]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -14.899998, 2.5216045, 9.717825)
-operation = 2
-size = Vector3(4, 5, 3)
-
-[node name="Window_Cutout_Right9" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1653192939]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.100002, 2.5216045, 19.717825)
-operation = 2
-size = Vector3(4, 5, 3)
-
-[node name="Window_Cutout_Right8" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1814409759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.100002, 2.5216045, 14.717825)
-operation = 2
-size = Vector3(4, 5, 3)
+size = Vector3(4, 5.3027344, 2.5563965)
 
 [node name="Player" parent="." unique_id=781874979 instance=ExtResource("2_p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 17.30351, 47)
