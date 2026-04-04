@@ -55,10 +55,6 @@ func _setup_view() -> void:
 	if cleared:
 		interior_cam.current = true
 		exterior_cam.current = false
-		interior_cam.transform.origin = Vector3(-2, 3.5, 4.0)
-		# 빨간색 공(-2, 1, 2) 기준, 뒤로 +2m(Z), 위로 약 +2.5m(Y). 
-		# 창문 중앙 높이(지형 2m + 창문 3.5m = 5.5m)를 바라봄.
-		interior_cam.look_at(Vector3(0, 5.5, -12), Vector3.UP)
 		print("[Title] Interior View Active. Global Pos: ", interior_cam.global_position)
 	else:
 		# 문 밖 시점

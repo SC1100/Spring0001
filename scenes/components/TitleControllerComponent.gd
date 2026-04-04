@@ -40,7 +40,6 @@ func activate_title() -> void:
 	# 카메라 전환
 	if interior_cam:
 		interior_cam.current = true
-		interior_cam.look_at(Vector3(0, 5.5, -12), Vector3.UP)
 	
 	# 플레이어 일시 정지 및 숨기기
 	if player:
