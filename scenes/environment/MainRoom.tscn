@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" path="res://scenes/components/DebugEndingBall.tscn" id="5_e"]
 [ext_resource type="PackedScene" uid="uid://df08euo26tf0m" path="res://scenes/environment/furniture/Desk.tscn" id="5_vnh75"]
 [ext_resource type="PackedScene" uid="uid://dcgwx2dgwj50n" path="res://scenes/components/DoorComponent.tscn" id="6_d"]
-[ext_resource type="PackedScene" path="res://scenes/environment/furniture/DesktopComputer.tscn" id="6_ivqks"]
+[ext_resource type="PackedScene" uid="uid://bfl4x7ed6kiif" path="res://scenes/environment/furniture/DesktopComputer.tscn" id="6_ivqks"]
 [ext_resource type="PackedScene" path="res://scenes/environment/PlaceableCube.tscn" id="7_c"]
-[ext_resource type="PackedScene" path="res://scenes/environment/furniture/JapaneseToilet.tscn" id="7_emf5g"]
+[ext_resource type="PackedScene" uid="uid://dbsu1veo4spnh" path="res://scenes/environment/furniture/JapaneseToilet.tscn" id="7_emf5g"]
 [ext_resource type="PackedScene" path="res://scenes/environment/PlaceableCylinder.tscn" id="8_y"]
 [ext_resource type="PackedScene" uid="uid://bu2od4ct6luxp" path="res://scenes/environment/furniture/BathroomSink.tscn" id="9_sink"]
 [ext_resource type="PackedScene" uid="uid://cwqknl1fwalma" path="res://scenes/environment/furniture/Bathtub.tscn" id="10_tub"]
@@ -26,10 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://dap8ypx2cj1ix" path="res://scenes/environment/furniture/Shower.tscn" id="14_shower"]
 [ext_resource type="PackedScene" uid="uid://bbnitu2omrv0t" path="res://scenes/environment/furniture/TVShelf.tscn" id="15_tvshelf"]
 [ext_resource type="PackedScene" path="res://scenes/environment/furniture/TV.tscn" id="16_tv"]
-[ext_resource type="PackedScene" path="res://scenes/environment/furniture/VictorianBed.tscn" id="17_vbed"]
+[ext_resource type="PackedScene" uid="uid://b3gqwsgniqigx" path="res://scenes/environment/furniture/VictorianBed.tscn" id="17_vbed"]
 [ext_resource type="PackedScene" uid="uid://cvya3wk0oqed7" path="res://scenes/environment/furniture/KallaxShelf.tscn" id="18_kshelf"]
 [ext_resource type="PackedScene" uid="uid://b0oje7ea7mepo" path="res://scenes/environment/furniture/Mirror.tscn" id="19_mirror"]
-[ext_resource type="PackedScene" path="res://scenes/environment/furniture/Sofa.tscn" id="20_sofa"]
+[ext_resource type="PackedScene" uid="uid://b10etg4c1hw7q" path="res://scenes/environment/furniture/Sofa.tscn" id="20_sofa"]
 [ext_resource type="PackedScene" uid="uid://biti7i2m6nvip" path="res://scenes/environment/furniture/InteriorWoodDoors.tscn" id="21_doors"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tf17"]
@@ -64,16 +64,16 @@ script = ExtResource("1_m")
 [node name="Geometry" type="Node3D" parent="." unique_id=2022305373]
 
 [node name="Closet2" parent="Geometry" unique_id=1555211510 instance=ExtResource("3_wjuns")]
-transform = Transform3D(-1, 0, -3.8941437e-07, 0, 1, 0, 3.8941437e-07, 0, -1, -38.44636, 25.214176, 7.951971)
+transform = Transform3D(-1.3, 0, -5.062387e-07, 0, 1.3, 0, 5.062387e-07, 0, -1.3, -39.101818, 25.214176, 7.951971)
 
 [node name="Closet" parent="Geometry" unique_id=864432001 instance=ExtResource("3_wjuns")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -36.33873, 25.214176, 7.951971)
+transform = Transform3D(-1.3, 0, -1.9629454e-07, 0, 1.3, 0, 1.9629454e-07, 0, -1.3, -36.33873, 25.214176, 7.951971)
 
 [node name="Computer" parent="Geometry" unique_id=1351102298 instance=ExtResource("4_sfduo")]
-transform = Transform3D(-0.15, 0, 2.2649372e-08, 0, 0.15, 0, -2.2649372e-08, 0, -0.15, -35.419533, 27.75131, 1.0512934)
+transform = Transform3D(-0.15, 0, 2.2649372e-08, 0, 0.15, 0, -2.2649372e-08, 0, -0.15, -35.11444, 27.75131, 1.0128572)
 
 [node name="DesktopComputer" parent="Geometry" unique_id=908149605 instance=ExtResource("6_ivqks")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -37.110416, 25.586376, 1.0512934)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -36.805325, 25.586376, 1.0512934)
 
 [node name="JapaneseToilet" parent="Geometry" unique_id=2138633823 instance=ExtResource("7_emf5g")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -43.747948, 24.922209, 27.66099)
@@ -81,8 +81,11 @@ transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-
 [node name="Desk2" parent="Geometry" unique_id=879907385 instance=ExtResource("5_vnh75")]
 transform = Transform3D(1.5, 0, 3.576279e-07, 0, 1.5, 0, -3.576279e-07, 0, 1.5, -44.879807, 24.844948, 21.856436)
 
+[node name="Desk3" parent="Geometry" unique_id=887582616 instance=ExtResource("5_vnh75")]
+transform = Transform3D(2.25, 0, 3.9340247e-07, 0, 2.25, 0, -3.9340247e-07, 0, 2.25, 15.700991, 24.815466, 2.2134085)
+
 [node name="Desk" parent="Geometry" unique_id=1916036488 instance=ExtResource("5_vnh75")]
-transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -35.625237, 24.815466, 1.0512934)
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -35.320145, 24.815466, 1.0512934)
 
 [node name="Bucket" parent="Geometry" unique_id=1472535566 instance=ExtResource("3_b2d54")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.664982, 25.483295, 40.75066)
@@ -103,10 +106,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.14475, 26.748152, 37.6596
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -36.92477, 25, -5.3248324)
 
 [node name="CardBoardBox" parent="Geometry" unique_id=463844407 instance=ExtResource("12_box")]
-transform = Transform3D(0.047136135, -1.221607e-05, -0.016678823, -1.1600557e-05, -0.049999993, 3.8370704e-06, -0.016678823, 2.5237836e-07, -0.047136147, 4.601765, 25.021967, 19.984045)
+transform = Transform3D(0.047501855, -1.2218653e-05, -0.0156067945, -1.1600558e-05, -0.049999993, 3.8370704e-06, -0.0156067945, -2.4410525e-08, -0.047501873, 4.5716634, 25.021967, 19.984045)
 
 [node name="OfficeChair" parent="Geometry" unique_id=1335965127 instance=ExtResource("13_chair")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.42404, 25.171246, -0.6870861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.11895, 25.171246, -0.6870861)
 
 [node name="Shower" parent="Geometry" unique_id=521398694 instance=ExtResource("14_shower")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -45.23184, 27.671602, 37.733482)
@@ -114,17 +117,20 @@ transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -4
 [node name="TVShelf" parent="Geometry" unique_id=617430741 instance=ExtResource("15_tvshelf")]
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -8.872494, 25, 1.8777299)
 
+[node name="TV2" parent="Geometry" unique_id=941777236 instance=ExtResource("16_tv")]
+transform = Transform3D(-3.218533e-07, 0, 3, 0, 3, 0, -3, 0, -3.218533e-07, 16.119886, 28.249819, 2.7294025)
+
 [node name="TV" parent="Geometry" unique_id=228962655 instance=ExtResource("16_tv")]
-transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -8.880114, 26.249819, 1.7608914)
+transform = Transform3D(-1.9670125e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.9670125e-07, -8.880114, 26.249819, 1.7608914)
 
 [node name="VictorianBed" parent="Geometry" unique_id=1210252768 instance=ExtResource("17_vbed")]
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 30.337723, 24.287203, 2.3956456)
 
 [node name="KallaxShelf" parent="Geometry" unique_id=1849607568 instance=ExtResource("18_kshelf")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -28.023064, 25.009073, -1.665591)
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -28.023064, 25.009073, -1.1541703)
 
 [node name="Mirror" parent="Geometry" unique_id=177856711 instance=ExtResource("19_mirror")]
-transform = Transform3D(-1.3113416e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, -1.3113416e-09, -45.379116, 29.725422, 32.1543)
+transform = Transform3D(-1.3113416e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, -1.3113416e-09, -45.379116, 29.690926, 32.549217)
 
 [node name="Shower2" parent="Geometry" unique_id=1959026789 instance=ExtResource("14_shower")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.038446, 27.912535, 42.17265)
@@ -136,7 +142,7 @@ transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-
 transform = Transform3D(-4.5, 0, 3.934025e-07, 0, 4.5, 0, -3.934025e-07, 0, -4.5, 34.229492, 27.312801, 24.517723)
 
 [node name="Mirror2" parent="Geometry" unique_id=1806420192 instance=ExtResource("19_mirror")]
-transform = Transform3D(-2.7939677e-09, 0, -0.030000001, 0, 0.03, 0, 0.030000001, 0, -2.7939677e-09, 34.89593, 29.430372, 24.418196)
+transform = Transform3D(-2.7939677e-09, 0, -0.030000001, 0, 0.03, 0, 0.030000001, 0, -2.7939677e-09, 34.89593, 29.334135, 24.504564)
 
 [node name="Sofa" parent="Geometry" unique_id=778438447 instance=ExtResource("20_sofa")]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 12.27458, 26.225117, 1.9863243)
@@ -196,8 +202,9 @@ size = Vector3(81, 2, 53)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Ceiling_Main" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=200000001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.569275, 9.5, -10.818115)
-size = Vector3(82.86145, 1, 1.6225586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.569275, 9.5, 17.870605)
+visible = false
+size = Vector3(82.86145, 1, 59)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_L" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1377453371]
@@ -226,8 +233,8 @@ size = Vector3(51, 34, 2)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Wall_Front" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=1167465254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3293686, -8.960968, -10.765674)
-size = Vector3(80.66377, 35.79828, 1.7313477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3293686, -8.845497, -10.765674)
+size = Vector3(80.66377, 36.02922, 1.7313477)
 material = SubResource("StandardMaterial3D_bk1gj")
 
 [node name="Window_Cutout_Center" type="CSGBox3D" parent="Geometry/RoomCSG" unique_id=843408164]
@@ -411,16 +418,16 @@ far = 250.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 26, 0)
 
 [node name="DebugRestartButton" parent="DebugTools" unique_id=1162779307 instance=ExtResource("4_r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -0.3840847, 5)
 
 [node name="DebugEndingBall" parent="DebugTools" unique_id=1354785492 instance=ExtResource("5_e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, -0.21617508, 6.5)
 
 [node name="PlaceableCube" parent="." unique_id=70001 instance=ExtResource("7_c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 26, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 15.17178, 12)
 
 [node name="PlaceableCylinder" parent="." unique_id=70002 instance=ExtResource("8_y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 26, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 9.958221, 12)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=552899955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13684559, 28.064417, -0.12097645)

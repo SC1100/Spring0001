@@ -4,6 +4,7 @@ class_name DoorComponent
 ## Entrance Door Logic
 ## 로어북 규칙 준수: 장면 전환 시퀀스 및 화이트 페이드 활용
 var interactable: Node
+var is_transitioning: bool = false
 
 func _ready() -> void:
 	interactable = find_child("Interactable", true, false)
@@ -31,8 +32,16 @@ func _ready() -> void:
 	print("[DoorComponent] Ready and connected to: ", interactable.name)
 
 func _on_door_interacted(_interactor: Node3D, _is_long: bool = false) -> void:
+	if is_transitioning:
+		return
+	is_transitioning = true
+	
 	# 문 밖에서 상호작용하면 무조건 입장 시퀀스 시작 (테스트 편의성 및 자유도)
 	_start_entrance_sequence()
+	
+	# 3초간 추가 상호작용 비활성화
+	await get_tree().create_timer(3.0).timeout
+	is_transitioning = false
 
 func _start_entrance_sequence() -> void:
 	# 씬 트리에 존재하는 SceneTransition 찾기 (Title에서 넘어올 때는 이미 처리됨)

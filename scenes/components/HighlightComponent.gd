@@ -6,7 +6,7 @@ class_name HighlightComponent
 
 @export var enabled_by_default: bool = false
 @export var outline_color: Color = Color(1.0, 1.0, 1.0, 1.0)
-@export var outline_width: float = 2.0
+@export var outline_width: float = 4.0
 
 var mesh_instances: Array = [] # GeometryInstance3D들을 담음
 var outline_material: ShaderMaterial

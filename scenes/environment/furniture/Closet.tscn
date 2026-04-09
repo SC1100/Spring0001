@@ -155,7 +155,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ocrqe")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(0.49035645, 4.5161133, 0.5)
 
 [node name="Closet" type="StaticBody3D" unique_id=1413056298 groups=["Furniture", "Interactable", "Persistent"]]
 collision_mask = 3
@@ -185,7 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05063629, 0, 0)
 mesh = SubResource("ArrayMesh_vhy57")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=464215217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 3.9, -0.021697998, 2.2580566, 0.03414941)
 shape = SubResource("BoxShape3D_1")
 
 [node name="Interactable" parent="." unique_id=1721492979 instance=ExtResource("1_i")]

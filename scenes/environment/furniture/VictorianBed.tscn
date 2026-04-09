@@ -1,29 +1,29 @@
-[gd_scene format=3 uid="uid://victorian_bed_id"]
+[gd_scene format=3 uid="uid://b3gqwsgniqigx"]
 
 [ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
 [ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
-[ext_resource type="PackedScene" path="res://assets/funiture/victorian_bed.glb" id="4_m"]
+[ext_resource type="PackedScene" uid="uid://cxipe1rkohx4l" path="res://assets/funiture/victorian_bed.glb" id="4_m"]
 [ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
 [ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="6_bv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(1.8, 0.6, 2.2)
+size = Vector3(2.132129, 0.9767578, 2.8461425)
 
-[node name="VictorianBed" type="StaticBody3D" groups=["Furniture", "Interactable", "Persistent"]]
+[node name="VictorianBed" type="StaticBody3D" unique_id=1906146237 groups=["Furniture", "Interactable", "Persistent"]]
 collision_mask = 3
 
-[node name="Model" parent="." instance=ExtResource("4_m")]
+[node name="Model" parent="." unique_id=25523306 instance=ExtResource("4_m")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=98599631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029931635, 0.4883789, 0.014379978)
 shape = SubResource("BoxShape3D_1")
 
-[node name="Interactable" parent="." instance=ExtResource("1_i")]
+[node name="Interactable" parent="." unique_id=791646172 instance=ExtResource("1_i")]
 interaction_text = "침대 조사 (E)"
 
-[node name="HighlightComponent" type="Node" parent="."]
+[node name="HighlightComponent" type="Node" parent="." unique_id=1463689564]
 script = ExtResource("3_h")
 
-[node name="MediaFrameComponent" parent="." instance=ExtResource("5_mf")]
+[node name="MediaFrameComponent" parent="." unique_id=1356257180 instance=ExtResource("5_mf")]
 
-[node name="BillboardViewer" parent="." instance=ExtResource("6_bv")]
+[node name="BillboardViewer" parent="." unique_id=1609526938 instance=ExtResource("6_bv")]

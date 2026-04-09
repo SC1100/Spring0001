@@ -20,6 +20,11 @@ func _ready() -> void:
 	hint_ui = get_tree().root.find_child("InteractionHintUI", true, false)
 	if hint_ui:
 		print("[InteractionComponent] Hint UI registered.")
+		
+	# 시선을 아래로 향할 때 레이저가 플레이어 자신의 몸체(CollisionShape)에 가로막히는 현상 방지
+	var player_body = get_parent()
+	if interaction_ray and player_body is CollisionObject3D:
+		interaction_ray.add_exception(player_body)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(interaction_action):

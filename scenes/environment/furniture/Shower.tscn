@@ -5,7 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c5fhy3w68sbbj" path="res://assets/funiture/shower_high_poly.glb" id="4_m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
-size = Vector3(0.5, 2, 0.5)
+size = Vector3(0.22503662, 1.2727051, 0.12307739)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_om584"]
+size = Vector3(0.26831055, 0.22341919, 0.51153564)
 
 [node name="Shower" type="StaticBody3D" unique_id=1959026789 groups=["Furniture", "Interactable", "Persistent"]]
 collision_mask = 3
@@ -13,7 +16,7 @@ collision_mask = 3
 [node name="Model" parent="." unique_id=108626664 instance=ExtResource("4_m")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=820790024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021820068, 0.52038574, 0.030326247)
 shape = SubResource("BoxShape3D_1")
 
 [node name="Interactable" parent="." unique_id=1719842107 instance=ExtResource("1_i")]
@@ -21,3 +24,7 @@ interaction_text = "샤워기 조사 (E)"
 
 [node name="HighlightComponent" type="Node" parent="." unique_id=335891132]
 script = ExtResource("3_h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1988220784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014158547, 1.0778656, 0.30244765)
+shape = SubResource("BoxShape3D_om584")

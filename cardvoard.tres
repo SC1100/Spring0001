@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4geuylk6x53c"]
+
+[ext_resource type="Texture2D" uid="uid://ngfj8kw78o5l" path="res://assets/funiture/card_board_box_0.png" id="1_330ey"]
+[ext_resource type="Texture2D" uid="uid://die472cql4dk1" path="res://assets/funiture/card_board_box_1.png" id="2_qo2ij"]
+[ext_resource type="Texture2D" uid="uid://d06g442mx0tli" path="res://assets/funiture/card_board_box_2.png" id="3_7r1jl"]
+
+[resource]
+resource_name = "Cardboasd"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_330ey")
+metallic_texture = ExtResource("2_qo2ij")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_qo2ij")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_7r1jl")
