@@ -9,7 +9,7 @@
 
 ---
 
-##  Tech Stack
+##  기술 스택
 
 ### Core Engine & Language
 *   **Game Engine**: Godot Engine v4.6.1
