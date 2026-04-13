@@ -46,7 +46,7 @@
 ---
 
 ### QA & Troubleshooting
-*   
+*   상세 테스트케이스와 버그리포트 `QA_TestCase, BugReport.xlsx `
 
 ---
 
