@@ -33,7 +33,7 @@
 *   Antigravity를 활용하였으며 다음과 같은 아키텍쳐 원칙을 바탕으로 개발되었습니다 (`godot rules.md`)
 
 1. **컴포넌트 중심 아키텍처 (Component-Based Design)**
-   - 거대한 단일 스크립트(God Object)를 배제하고, `MovementComponent`, `InteractionComponent`, `MediaFrameComponent` 등 철저하게 단일 책임을 지는 소형 노드 단위로 기능을 분리했습니다.
+   - 단일 스크립트와 하드코딩을 지양하고, `MovementComponent`, `InteractionComponent`, `MediaFrameComponent` 등 철저하게 단일 책임을 지는 소형 노드 단위로 기능을 분리했습니다.
    - 이를 통해 에러 발생 시 추적이 쉽고, 새로운 물체에 레고 블록처럼 기능을 쉽게 조립하여 재사용할 수 있습니다.
 
 2. **결합도 최소화 (Loose Coupling)와 Observer 패턴**
