@@ -30,7 +30,7 @@
 ---
 
 ### 개발 방식
-*   Antigravity를 통한 바이브 코딩을 활용하였으며 다음과 같은 아키텍쳐 원칙을 설계하고 이를 바탕으로 개발되었습니다 (`godot rules.md`)
+*   Antigravity를 활용하였으며 다음과 같은 아키텍쳐 원칙을 바탕으로 개발되었습니다 (`godot rules.md`)
 
 1. **컴포넌트 중심 아키텍처 (Component-Based Design)**
    - 거대한 단일 스크립트(God Object)를 배제하고, `MovementComponent`, `InteractionComponent`, `MediaFrameComponent` 등 철저하게 단일 책임을 지는 소형 노드 단위로 기능을 분리했습니다.
