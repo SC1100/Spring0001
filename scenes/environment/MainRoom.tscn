@@ -103,7 +103,7 @@ transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -44.652836, 27.742807, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.14475, 26.748152, 37.65967)
 
 [node name="Bed" parent="Geometry" unique_id=1502899047 instance=ExtResource("11_bed")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -36.92477, 25, -5.3248324)
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -35.92477, 25, -6.3248324)
 
 [node name="CardBoardBox" parent="Geometry" unique_id=463844407 instance=ExtResource("12_box")]
 transform = Transform3D(0.047501855, -1.2218653e-05, -0.0156067945, -1.1600558e-05, -0.049999993, 3.8370704e-06, -0.0156067945, -2.4410525e-08, -0.047501873, 4.5716634, 25.021967, 19.984045)
