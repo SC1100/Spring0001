@@ -21,13 +21,15 @@ func setup_and_check(p_room: Node3D, p_player: Node3D) -> void:
 	# 초기화: UI는 무조건 숨김
 	title_ui.hide()
 	
-	# 클리어 데이터 확인
+	# 클리어 데이터 확인 및 강제 타이틀 플래그 확인
 	var player_data = Global.player_data
 	var cleared = player_data.is_game_cleared if player_data else false
+	var forced_title = Global.get("force_title_screen") if Global.get("force_title_screen") != null else false
 	
-	print("[TitleController] State Check - Cleared: ", cleared)
+	print("[TitleController] State Check - Cleared: ", cleared, " | Forced: ", forced_title)
 	
-	if cleared:
+	if cleared or forced_title:
+		Global.set("force_title_screen", false) # 사용 후 초기화
 		activate_title()
 	else:
 		# 1회차면 아무것도 안 함 (인게임 상태 유지)
@@ -52,7 +54,7 @@ func activate_title() -> void:
 func _on_enter_pressed() -> void:
 	var transition = get_node_or_null("/root/SceneTransition")
 	if transition:
-		await transition.fade_out(0.5)
+		await transition.fade_out(1.5) # 0.5에서 1.5로 늦춤 (더 부드러운 전환)
 	
 	title_ui.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -66,7 +68,7 @@ func _on_enter_pressed() -> void:
 		if p_cam: p_cam.current = true
 	
 	if transition:
-		await transition.fade_in(0.5)
+		await transition.fade_in(1.5) # 0.5에서 1.5로 늦춤
 	
 	game_started.emit()
 	print("[TitleController] Game Started.")

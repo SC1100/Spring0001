@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="1_i"]
 [ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_h"]
 [ext_resource type="PackedScene" uid="uid://ckeorrngicdgx" path="res://assets/funiture/simple_tv_shelf_210cm.glb" id="4_m"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="5_bsetx"]
 [ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="5_mf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1"]
@@ -18,10 +19,14 @@ transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1251831, 0)
 shape = SubResource("BoxShape3D_1")
 
-[node name="Interactable" parent="." unique_id=1992567807 instance=ExtResource("1_i")]
+[node name="Interactable" parent="." unique_id=80731872 instance=ExtResource("1_i")]
 interaction_text = "선반 조사 (E)"
 
-[node name="HighlightComponent" type="Node" parent="." unique_id=1584373308]
+[node name="HighlightComponent" type="Node" parent="." unique_id=100628548]
 script = ExtResource("3_h")
 
-[node name="MediaFrameComponent" parent="." unique_id=1362510305 instance=ExtResource("5_mf")]
+[node name="MediaFrameComponent" parent="." unique_id=848666546 instance=ExtResource("5_mf")]
+
+[node name="BillboardViewer" parent="." unique_id=1807605897 instance=ExtResource("5_bsetx")]
+offset = Vector2(0, 0.38596833)
+transform = Transform2D(1, 0, 0, 1, 0, 0.38596833)

@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://bttynuefdods8" path="res://scenes/environment/furniture/CardBoardBox.tscn" id="12_box"]
 [ext_resource type="PackedScene" uid="uid://b31wqawmcldf8" path="res://scenes/environment/furniture/OfficeChair.tscn" id="13_chair"]
 [ext_resource type="PackedScene" uid="uid://dap8ypx2cj1ix" path="res://scenes/environment/furniture/Shower.tscn" id="14_shower"]
+[ext_resource type="PackedScene" uid="uid://w40ppvfyxe7j" path="res://assets/funiture/CardboardBoxes.tscn" id="15_0ucph"]
+[ext_resource type="PackedScene" uid="uid://fw0rvqlh7qm2" path="res://assets/funiture/cardboardbox black.tscn" id="15_1vb54"]
 [ext_resource type="PackedScene" uid="uid://bbnitu2omrv0t" path="res://scenes/environment/furniture/TVShelf.tscn" id="15_tvshelf"]
 [ext_resource type="PackedScene" path="res://scenes/environment/furniture/TV.tscn" id="16_tv"]
 [ext_resource type="PackedScene" uid="uid://b3gqwsgniqigx" path="res://scenes/environment/furniture/VictorianBed.tscn" id="17_vbed"]
@@ -82,7 +84,7 @@ transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-
 transform = Transform3D(1.5, 0, 3.576279e-07, 0, 1.5, 0, -3.576279e-07, 0, 1.5, -44.879807, 24.844948, 21.856436)
 
 [node name="Desk3" parent="Geometry" unique_id=887582616 instance=ExtResource("5_vnh75")]
-transform = Transform3D(2.25, 0, 3.9340247e-07, 0, 2.25, 0, -3.9340247e-07, 0, 2.25, 15.700991, 24.815466, 2.2134085)
+transform = Transform3D(1.5, 0, 2.6226832e-07, 0, 1.5, 0, -2.6226832e-07, 0, 1.5, 15.700991, 24.815466, 2.1726785)
 
 [node name="Desk" parent="Geometry" unique_id=1916036488 instance=ExtResource("5_vnh75")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -35.320145, 24.815466, 1.0512934)
@@ -108,6 +110,15 @@ transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, -35.92477, 25, -6.32
 [node name="CardBoardBox" parent="Geometry" unique_id=463844407 instance=ExtResource("12_box")]
 transform = Transform3D(0.047501855, -1.2218653e-05, -0.0156067945, -1.1600558e-05, -0.049999993, 3.8370704e-06, -0.0156067945, -2.4410525e-08, -0.047501873, 4.5716634, 25.021967, 19.984045)
 
+[node name="cardboardbox black" parent="Geometry" unique_id=1171895230 instance=ExtResource("15_1vb54")]
+transform = Transform3D(-1.7484555e-07, -3.496911e-07, 4, 0, -4, -3.496911e-07, 4, -1.5285484e-14, 1.7484555e-07, 21.345324, 25.101501, 31.177103)
+
+[node name="cardboardbox black2" parent="Geometry" unique_id=1945507449 instance=ExtResource("15_1vb54")]
+transform = Transform3D(3.9999998, -2.842171e-14, 0, 0, -4, 3.4969105e-07, 0, -3.496911e-07, -3.9999998, 9.365703, 25.095858, -3.599309)
+
+[node name="CardBoardBox2" parent="Geometry" unique_id=1780353099 instance=ExtResource("15_0ucph")]
+transform = Transform3D(-3.5000005, 0, -6.0621777, 0, 7, 0, 6.0621777, 0, -3.5000005, 12, 25.025742, 35.338257)
+
 [node name="OfficeChair" parent="Geometry" unique_id=1335965127 instance=ExtResource("13_chair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.11895, 25.171246, -0.6870861)
 
@@ -118,7 +129,7 @@ transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -4
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -8.872494, 25, 1.8777299)
 
 [node name="TV2" parent="Geometry" unique_id=941777236 instance=ExtResource("16_tv")]
-transform = Transform3D(-3.218533e-07, 0, 3, 0, 3, 0, -3, 0, -3.218533e-07, 16.119886, 28.249819, 2.7294025)
+transform = Transform3D(-3.2584137e-07, 0, 2, 0, 2, 0, -2, 0, -3.2584137e-07, 16.119886, 27.023777, 2.5640697)
 
 [node name="TV" parent="Geometry" unique_id=228962655 instance=ExtResource("16_tv")]
 transform = Transform3D(-1.9670125e-07, 0, 4.5, 0, 4.5, 0, -4.5, 0, -1.9670125e-07, -8.880114, 26.249819, 1.7608914)

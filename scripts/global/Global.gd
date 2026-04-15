@@ -6,12 +6,20 @@ extends Node
 var pet_data: PetData
 var player_data: Resource # PlayerData (캐시 이슈 방지를 위해 Resource로 선언)
 var media_registry: Array[String] = []
+var force_title_screen: bool = false # 일시정지 메뉴에서 타이틀로 강제 회귀할 때 사용
 
 const PET_SAVE_PATH = "user://pet_save.tres"
 const PLAYER_SAVE_PATH = "user://player_save.tres"
 
 func _ready() -> void:
 	_initialize_data()
+	
+	# PauseMenu 자동 생성 및 부착 (모든 씬에서 작동하게 만듦)
+	var pause_menu_scene = load("res://scenes/ui/PauseMenu.tscn")
+	if pause_menu_scene:
+		var pm_instance = pause_menu_scene.instantiate()
+		add_child(pm_instance)
+		print("[Global] PauseMenu instantiated automatically.")
 
 func _initialize_data() -> void:
 	# 플레이어 데이터 로드 또는 생성
@@ -66,8 +74,8 @@ func gather_scene_data() -> void:
 			data.position = node.global_position
 			data.rotation = node.global_rotation
 			
-			# MediaFrameComponent가 있다면 미디어 경로 저장
-			var media_comp = node.find_child("MediaFrameComponent", true, false)
+			# MediaFrameComponent가 있다면 미디어 경로 저장 (이름 뒤에 숫자가 붙었을 경우 대비)
+			var media_comp = node.find_child("*MediaFrameComponent*", true, false)
 			if media_comp and "registered_media_path" in media_comp:
 				data.media_path = media_comp.registered_media_path
 				
@@ -77,7 +85,7 @@ func gather_scene_data() -> void:
 
 ## 저장된 데이터를 씬의 오브젝트들에 적용
 func apply_scene_data(root_node: Node) -> void:
-	if not player_data or player_data.placed_objects.is_empty(): 
+	if not player_data or player_data.placed_objects.is_empty():
 		return
 	
 	print("[Global] Applying saved data to: ", root_node.name)
@@ -89,7 +97,7 @@ func apply_scene_data(root_node: Node) -> void:
 			target.global_rotation = data.rotation
 			
 			# 미디어 복구
-			var media_comp = target.find_child("MediaFrameComponent", true, false)
+			var media_comp = target.find_child("*MediaFrameComponent*", true, false)
 			if media_comp and not data.media_path.is_empty():
 				if media_comp.has_method("load_media_from_path"):
 					media_comp.load_media_from_path(data.media_path)

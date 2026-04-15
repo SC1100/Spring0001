@@ -1,0 +1,69 @@
+[gd_scene format=4 uid="uid://w40ppvfyxe7j"]
+
+[ext_resource type="Texture2D" uid="uid://ctgagff8kkdhb" path="res://assets/funiture/cardboard_boxes_0.jpg" id="1_e7u2g"]
+[ext_resource type="PackedScene" uid="uid://cg3bggfb323t8" path="res://scenes/components/Interactable.tscn" id="2_4bnkc"]
+[ext_resource type="Script" uid="uid://c4pq42pxsfp3v" path="res://scenes/components/HighlightComponent.gd" id="3_5w7gk"]
+[ext_resource type="PackedScene" path="res://scenes/components/MediaFrameComponent.tscn" id="4_rmht5"]
+[ext_resource type="PackedScene" uid="uid://eec41yv5trem" path="res://scenes/components/BillboardViewerComponent.tscn" id="5_40q1r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3niyc"]
+size = Vector3(0.5343628, 0.43606567, 0.14131927)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enqbm"]
+resource_name = "Material_25"
+cull_mode = 2
+albedo_texture = ExtResource("1_e7u2g")
+roughness = 0.6
+uv1_scale = Vector3(2, 2, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_btdpk"]
+_surfaces = [{
+"aabb": AABB(-0.2782286, -0.23257706, 0, 0.5469737, 0.47822323, 0.13846159),
+"format": 34896613377,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAgAFAAAAAgAEAAUAAAAGAAMAAAAFAAYAAwAHAAEAAQAHAAQAAwAGAAcABgAIAAcABwAIAAkABgAKAAgACwAJAAgACwAIAAoADAAJAAsABwAJAAwADQALAAoADQAKAAYADAALAA0ABgAOAA0ABgAPAA4ABQAPAAYAEAAOAA8ADQAOABAAEAAPABEABQARAA8AEgAQABEAEgARAAUADQAQABIAEwAMAA0AFAATAA0AFAANABIAFAAVABMAEwAVAAwAFAAWABUAFgAUABIAFQAWABcAFgASABcAFQAXAAwABQAYABIAEgAYABkAEgAZABcABQAaABgAGQAYABoABAAaAAUAGQAaABsABAAbABoAFwAZABsAFwAbAAQABAAcABcAFwAdAAwAFwAcAB0ADAAdAB4ADAAeAAcAHQAcAB8ABAAfABwAHQAfAB4ABwAfAAQABwAeAB8A"),
+"name": "Material_25",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("YDqdQQAAAAB9yXG3AAAAAM45cbcAAAAAD8qdQQAAAADOOXG3qooAAGA6nUGqigAAD8qdQaqKAAB9yXG3qooAAG3/cbf//wAATv7Vtf//AAD//51B//8AANr+vkL//wAAXsjVtaqKAADqyL5CqooAAOrIIAHs+QAAD8oAAOz5AACSOyAB7PkAAGA6AADs+QAAkju+QqqKAADqyL5CiwUAAJI7vkKLBQAAXsjVtYsFAAAGO9W1iwUAAAY71bWqigAAwwG+QsXsAAA3AdW1xewAAJEAnUHF7AAAAABxt8XsAAAGO2L+S+4AAF7IYv5L7gAAfcn//0vuAADOOf//S+4AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_41klb"]
+resource_name = "Sketchfab_Scene_Cardboard Box V1_Material #25_0"
+_surfaces = [{
+"aabb": AABB(-0.2782286, -0.23257706, 0, 0.5469737, 0.47822323, 0.13846159),
+"attribute_data": PackedByteArray("N6UfQYL/IADbpCAA3v8fQdukBUKC/ypYgv8FQtukKlhLImqiSmOQuEpjaqJLIpC45SgobxoMAeXlKAHlGgwob6Rb+OejnB3+o5z456RbHf5sphOmQP+Q5Zn/E6YTppDlvGUq5Y8Mbfq8ZW36jwwq5eVLgOVpDML65UvC+mkMgOVp3lvFPIWd2mnendo8hVvF3YSRxWFF1NrdhNTaYUWRxfEk2QBRZXwAUiQgAG5kMQFzjDkjV40rfVeNhCJzjGZ8bmTfoFIkSKFRZaSh8SSHoL8ADnwgACgiIADPfL8A4SLbpHiBgv+qpYL/eIHbpKqlUiQoIr8A4SLxJOEiIAAoIvEk4SK/AA588SQOfL8A4SLxJA58IADPfFIkz3y/AA5826Q0WYL/OYGC/zRZ26Q5gVFlK31zjGZ8bmRmfFeNK31uZGZ8c4w5I25kOSNzjGZ8bmQ5I1eNhCJRZYQic4w5I08XuMNOWGTlTlhcw08XwOVRZYQibmQxAW5kOSNRZXwAbmQ5I/Ek2QDxJOEibmQxAfEk4SJSJCAAUiQoIvEk2QAzmizkNFkPwDRZiOQzmrO/UiTPfPEkh6DxJA58UiRIofEkDnxuZN+gbmRmfPEkh6BuZGZ8UWWkoVFlK31uZN+g"),
+"format": 34896613399,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUA"),
+"material": SubResource("StandardMaterial3D_enqbm"),
+"name": "Material_25",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 120,
+"vertex_data": PackedByteArray("YDqdQQAAAAB9yXG3AAAAAM45cbcAAAAAD8qdQQAAAABgOp1BAAD/Pw/KnUGqiv8/D8qdQQAA/z9gOp1Bqor/Pw/KnUEAAIkqfclxt6qKiSp9yXG3AACJKg/KnUGqiokqfclxtwAAqirOOXG3qoqqKs45cbcAAKoqfclxt6qKqirOOXG3AADLKmA6nUGqissqYDqdQQAAyyrOOXG3qorLKpI7vkKLBf5/XsjVtYsF/n/qyL5CiwX+fwY71bWLBf5/kju+QosFAADqyL5CqooAAJI7vkKqigAA6si+QosFAADqyL5CiwXLKl7I1bWqissq6si+QqqKyypeyNW1iwXLKl7I1bWLBf8/BjvVtaqK/z9eyNW1qor/PwY71bWLBf8/BjvVtYsFiSqSO75CqoqJKgY71bWqiokqkju+QosFiSra/r5C////P23/cbf///8///+dQf///z9O/tW1////P17IYv5L7v8/zjn//0vu/z99yf//S+7/PwY7Yv5L7v8/NwHVtcXs/z+RAJ1Bxez/PwAAcbfF7P8/wwG+QsXs/z+SOyAB7Pn/Pw/KAADs+f8/YDoAAOz5/z/qyCAB7Pn/P2A6nUGqipgSD8oAAOz5mBIPyp1BqoqYEmA6AADs+ZgSD8qdQaqK6D/qyCAB7PnoP+rIvkKqiug/D8oAAOz56D/qyL5CqorpPZI7IAHs+ek9kju+QqqK6T3qyCAB7PnpPZI7vkKqirs5YDoAAOz5uzlgOp1Bqoq7OZI7IAHs+bs5fclxt6qKAADOOf//S+4AAM45cbeqigAAfcn//0vuAADOOXG3qor+PwY7Yv5L7v4/BjvVtaqK/j/OOf//S+7+PwY71bWqio4+Xshi/kvujj5eyNW1qoqOPgY7Yv5L7o4+XsjVtaqKnTl9yf//S+6dOX3Jcbeqip05Xshi/kvunTkPyp1BqopWDm3/cbf//1YOfclxt6qKVg7//51B//9WDn3Jcbeqio04Tv7Vtf//jTheyNW1qoqNOG3/cbf//404XsjVtaqKgD3a/r5C//+APerIvkKqioA9Tv7Vtf//gD3qyL5CqorQP///nUH//9A/D8qdQaqK0D/a/r5C///QP845cbeqipULkQCdQcXslQtgOp1BqoqVCwAAcbfF7JULYDqdQaqKHjnDAb5CxeweOZI7vkKqih45kQCdQcXsHjmSO75CqopcPjcB1bXF7Fw+BjvVtaqKXD7DAb5CxexcPgY71bWqiv0/AABxt8Xs/T/OOXG3qor9PzcB1bXF7P0/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3++KoIqviqCKr4qgiq+KoIqVNWqKlTVqipU1aoqVNWqKixVlaosVZWqLFWVqixVlar/f////3////9/////f////3//v/9//7//f/+//3//vy1VlqotVZaqLVWWqi1VlqoAAP9/AAD/fwAA/38AAP9/viqCKr4qgiq+KoIqviqCKv////////////////////////////////////////////////////////////////////////////////////8AAP9/AAD/fwAA/38AAP9/lNpkBJTaZASU2mQElNpkBLLrTBSy60wUsutMFLLrTBQy+7IiMvuyIjL7siIy+7Ii/39s6/9/bOv/f2zr/39s6/zaxf782sX+/NrF/vzaxf65EUXuuRFF7rkRRe65EUXufQKMI30CjCN9AowjfQKMI6U4sTilOLE4pTixOKU4sTio/W3aqP1t2qj9bdqo/W3aIeph6iHqYeoh6mHqIeph6jIr9vkyK/b5Miv2+TIr9vkCxvvFAsb7xQLG+8UCxvvFGgU43BoFONwaBTjcGgU43MMSjRLDEo0SwxKNEsMSjRJZI1IBWSNSAVkjUgFZI1IB")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_btdpk")
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1780353099 groups=["Furniture", "Interactable", "Persistent"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2104504933]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0043029785, 0.07147599, 0.008346554)
+shape = SubResource("BoxShape3D_3niyc")
+
+[node name="Cardboard Box V1_Material #25_0" type="MeshInstance3D" parent="." unique_id=1453595856]
+transform = Transform3D(1, 0, 0, 0, 4.440892e-16, 1, 0, -1, 4.440892e-16, 0, 0, 0)
+mesh = SubResource("ArrayMesh_41klb")
+
+[node name="Interactable" parent="." unique_id=80731872 instance=ExtResource("2_4bnkc")]
+interaction_text = "상자 조사 (E)"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=678292061]
+script = ExtResource("3_5w7gk")
+
+[node name="MediaFrameComponent" parent="." unique_id=1928131348 instance=ExtResource("4_rmht5")]
+
+[node name="BillboardViewer" parent="." unique_id=960939734 instance=ExtResource("5_40q1r")]

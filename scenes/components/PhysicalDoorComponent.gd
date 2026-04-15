@@ -75,7 +75,9 @@ func close_door() -> void:
 	current_state = State.CLOSING
 	
 	if collision_node:
-		collision_node.disabled = true
+		# 문이 닫히기 시작하자마자 콜리전을 닫힘 상태 위치로 즉시 이동시켜 길을 막습니다.
+		collision_node.transform = _collision_closed_transform
+		_force_physics_update()
 	
 	current_tween = create_tween().set_trans(trans_type).set_ease(ease_type)
 	current_tween.tween_property(target_node, "rotation_degrees", close_rotation, duration)
@@ -83,9 +85,7 @@ func close_door() -> void:
 
 func _on_close_finished() -> void:
 	current_state = State.CLOSED
-	if collision_node:
-		collision_node.transform = _collision_closed_transform
-		_force_physics_update()
+	# 콜리전 이동 처리는 close_door() 호출 즉시 실행되도록 위로 옮겼습니다.
 
 func _move_collision_around_hinge(angle_deg: float) -> void:
 	var pivot := target_node.position
