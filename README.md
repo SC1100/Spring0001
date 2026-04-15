@@ -47,7 +47,7 @@
 ---
 
 ### QA & BugReport
-*   테스트 스코프를 포함한 상세 테스트케이스와 버그리포트 `QA_TestCase_BugReport.xlsx`
+*   TestScope, IssueList, BugReport, TestCase 는 `성태윤_QA_TestReport.xlsx`
 
 ---
 
