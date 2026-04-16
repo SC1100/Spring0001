@@ -47,12 +47,24 @@ func _ready() -> void:
 	print("[MediaFrameComponent] Ready. Viewer: ", (str(billboard_viewer.name) if billboard_viewer else "Missing"))
 
 func load_media_from_path(path: String) -> void:
-	if FileAccess.file_exists(path):
-		var image = Image.load_from_file(path)
+	var load_path = path
+	var global = get_node_or_null("/root/Global")
+	if global and global.has_method("get_media_absolute_path"):
+		load_path = global.get_media_absolute_path(path)
+
+	if FileAccess.file_exists(load_path):
+		var image = Image.load_from_file(load_path)
 		if image:
 			registered_texture = ImageTexture.create_from_image(image)
-			registered_media_path = path # 경로 동기화
-			print("[MediaFrameComponent] Media restored from: ", path)
+			registered_media_path = path # 경로 동기화 (세이브용)
+			print("[MediaFrameComponent] Media restored from: ", load_path)
+	else:
+		print("[MediaFrameComponent] WARNING - File not found at: ", load_path)
+		if default_texture:
+			print("[MediaFrameComponent] Falling back to default_texture.")
+			registered_texture = default_texture
+		else:
+			registered_texture = null
 
 var interaction_start_pos: Vector3 = Vector3.ZERO
 
@@ -113,24 +125,34 @@ func _on_file_selected(path: String) -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	var image = Image.load_from_file(path)
+	var global = get_node_or_null("/root/Global")
+	var final_load_path = path
+	var save_path = path
+
+	if global and global.has_method("import_external_media"):
+		var imported_filename = global.import_external_media(path)
+		if not imported_filename.is_empty():
+			save_path = imported_filename
+			final_load_path = global.get_media_absolute_path(imported_filename)
+	
+	var image = Image.load_from_file(final_load_path)
 	if image:
 		registered_texture = ImageTexture.create_from_image(image)
-		registered_media_path = path # 경로 저장 (세이브 시 활용)
+		registered_media_path = save_path # 경로 저장 (세이브 시 활용, 포터블 파일명)
 		_open_viewer(registered_texture)
 		
-		media_changed.emit(path)
+		media_changed.emit(final_load_path)
 		
-		var global = get_node_or_null("/root/Global")
 		if global:
 			if global.has_method("register_media"):
-				global.register_media(path)
+				global.register_media(save_path)
 			if global.has_method("save_game"):
 				global.save_game(true) # 사진이 등록되면 즉시 세이브를 발동하여 영속성화
 
 func _open_viewer(texture: Texture2D) -> void:
 	if billboard_viewer and last_interactor:
 		is_viewer_open = true
+		print("[MediaFrameComponent] Opening viewer. Current media path: ", registered_media_path)
 		# [수정] 배치는 이제 BillboardViewerComponent 내부에서 공통으로 처리합니다.
 		billboard_viewer.show_media(texture, last_interactor)
 

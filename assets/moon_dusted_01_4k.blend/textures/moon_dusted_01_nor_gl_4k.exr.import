@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://assets/sky/moon_dusted_01_4k.blend/textures/moon_dusted_01_nor_gl_4k.exr"
+source_file="res://assets/moon_dusted_01_4k.blend/textures/moon_dusted_01_nor_gl_4k.exr"
 
 [params]
 

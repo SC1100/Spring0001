@@ -7,11 +7,13 @@ var pet_data: PetData
 var player_data: Resource # PlayerData (캐시 이슈 방지를 위해 Resource로 선언)
 var media_registry: Array[String] = []
 var force_title_screen: bool = false # 일시정지 메뉴에서 타이틀로 강제 회귀할 때 사용
+var custom_media_dir: String # 포터블 미디어 보관용 디렉토리
 
 const PET_SAVE_PATH = "user://pet_save.tres"
 const PLAYER_SAVE_PATH = "user://player_save.tres"
 
 func _ready() -> void:
+	_init_custom_media_dir()
 	_initialize_data()
 	
 	# PauseMenu 자동 생성 및 부착 (모든 씬에서 작동하게 만듦)
@@ -38,6 +40,43 @@ func _initialize_data() -> void:
 		pet_data = PetData.new()
 		pet_data.created_at = int(Time.get_unix_time_from_system())
 		print("[Global] New PetData created.")
+
+func _init_custom_media_dir() -> void:
+	if OS.has_feature("editor"): # 에디터 내부 실행
+		custom_media_dir = "res://custom_media"
+	else: # 빌드(.exe) 실행
+		custom_media_dir = OS.get_executable_path().get_base_dir().path_join("custom_media")
+	
+	if not DirAccess.dir_exists_absolute(custom_media_dir):
+		var err = DirAccess.make_dir_absolute(custom_media_dir)
+		if err == OK:
+			print("[Global] Created custom_media directory at: ", custom_media_dir)
+		else:
+			push_error("[Global] Failed to create custom_media directory: ", err)
+
+func import_external_media(absolute_path: String) -> String:
+	if not FileAccess.file_exists(absolute_path):
+		return ""
+	var file_name = absolute_path.get_file()
+	var dest_path = custom_media_dir.path_join(file_name)
+	if absolute_path == dest_path:
+		return file_name # 이미 보관함에 있음
+	var unique_filename = str(Time.get_unix_time_from_system()) + "_" + file_name # 덮어쓰기 방지
+	dest_path = custom_media_dir.path_join(unique_filename)
+	var err = DirAccess.copy_absolute(absolute_path, dest_path)
+	if err == OK:
+		print("[Global] Media copied to: ", dest_path)
+		return unique_filename
+	else:
+		push_error("[Global] Failed to copy media: ", err)
+		return ""
+
+func get_media_absolute_path(filename: String) -> String:
+	if filename.is_empty():
+		return ""
+	if filename.is_absolute_path():
+		return filename # 이전 버전 세이브(절대 경로) 호환
+	return custom_media_dir.path_join(filename) # 포터블 변환
 
 ## 미디어 경로 등록
 func register_media(path: String) -> void:

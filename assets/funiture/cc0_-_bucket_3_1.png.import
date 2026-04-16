@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5cm8e4kigu6"
+uid="uid://dlt0xyj17nx8l"
 path.s3tc="res://.godot/imported/cc0_-_bucket_3_1.png-874fcabbee36e421b1dde1024cce145c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "5fdb32e904140e6b2ed762fd162f8aaa"
 }
 
 [deps]
@@ -29,8 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://assets/funiture/cc0_-_bucket_3_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
