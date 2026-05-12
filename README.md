@@ -1,6 +1,6 @@
 ## 게임 소개
 
-*   추억을 3D공간에 보관하는 1인칭 인터랙티브 갤러리 장르의 퍼스널 메모리얼 갤러리(Personal Memorial Gallery) 프로젝트입니다
+*   추억을 3D공간에 보관하는 1인칭 인터랙티브 갤러리 형식의 퍼스널 메모리얼 갤러리(Personal Memorial Gallery) 프로젝트입니다
 *   1인칭 시점으로 오브젝트와 상호작용하며 해당 오브젝트에 사진을 담아 추억이 담긴 자신만의 인터렉티브 갤러리를 만들고 감상할 수 있습니다 
 
 <img width="562" height="339" alt="image" src="https://github.com/user-attachments/assets/499f45a7-0f10-4ad9-b3ef-78f78294d066" />
