@@ -4,7 +4,6 @@
 *   1인칭 시점으로 오브젝트와 상호작용하며 해당 오브젝트에 사진을 담아 추억이 담긴 자신만의 인터렉티브 갤러리를 만들고 감상할 수 있습니다 
 
 <img width="562" height="307" alt="image" src="https://github.com/user-attachments/assets/33e407c1-1cdc-4779-b73d-cfcffd4f8862" />
-<img width="562" height="353" alt="image" src="https://github.com/user-attachments/assets/62517cec-d5c8-4aaf-a3ea-10eeec7f851e" />
 
 ---
 
